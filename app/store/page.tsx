@@ -3,8 +3,9 @@ import Filter from '../components/storeCOM/filter'
 export default function Home() {
   return (
 <>
+    <div className='flex flex-col' >
+    {/* <Filter/> */}
     <div className='flex flex-wrap justify-center items-center' >
-    <Filter/>
     <Crd/>
     <Crd/>
     <Crd/>
@@ -12,6 +13,7 @@ export default function Home() {
     <Crd/>
     <Crd/>
     <Crd/>
+    </div>
     </div>
 </>
   )

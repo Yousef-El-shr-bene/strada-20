@@ -3,19 +3,21 @@ import React, { useState } from 'react'
 import {RiFilter3Fill} from 'react-icons/ri';
 
 export default function Filter() {
-    const [fliter , setfliter] = useState(false)
+    const [filter , setfliter] = useState(false)
 
     function handelfliter() {
-        setfliter(!fliter)
+        setfliter(!filter)
     }
-  return (<>
-    <div className=' absolute left-0 top-36  p-3 bg-teal-500 hover:bg-teal-400 rounded text-white' >
-        <RiFilter3Fill onClick={handelfliter} />
-        <div className={`bg-slate-900 rounded-r ${fliter === true ? "" : "hidden"} `} >
-            qewrqqwerrewqqwerreqwqwer
-            <h1>ewrwerqwerqwerqwerwer</h1>
+    const filtercomp = <>
+            <div className='flex flex-col' >
+            werwerwerwerqwrewerwerwer
         </div>
+    </>;
+  return (<>
+    <div className='    p-3 bg-teal-500 hover:bg-teal-400 rounded text-white ' onClick={handelfliter} >
+        <RiFilter3Fill />
     </div>
+    {filter === true ? filtercomp : ""}
 
     </>
   )

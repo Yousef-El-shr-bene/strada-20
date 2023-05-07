@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Vazirmatn } from 'next/font/google'
+import Link from 'next/link';
 //
 const vazirmatn = Vazirmatn({
  subsets: ['arabic'],
@@ -12,9 +13,9 @@ export default function HederDrop() {
   const [pay,setpay] = useState("")
   const [borger , setborger] = useState(false)
   const elment = <>
-        <p className=' text-center p-3 border-x border-white hover:text-teal-500' >الرئيسية</p>
-        <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تسوق الان</p>
-        <p className=' text-center p-3 border-x border-white hover:text-teal-500' >Rewards program</p>
+       <Link href='/' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >الرئيسية</p></Link>
+        <Link href='/store' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تسوق الان</p></Link>
+       <p className=' text-center p-3 border-x border-white hover:text-teal-500' >Rewards program</p>
         <p className=' text-center p-3 border-x border-white hover:text-teal-500' >custom logo</p>
         <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تواصل معنا</p>
   </>
