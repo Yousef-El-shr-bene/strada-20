@@ -43,7 +43,7 @@ export default function HederDrop() {
     <div className="bg-teal-500 p-3.5 text-center hover:bg-teal-400 text-white" onClick={onserch} >
         <AiOutlineSearch />
       </div>
-      <div className={`hidden text-white font-medium text-sm m-auto  ${pay} sm:flex `}>
+      <div className={`hidden text-white font-medium text-sm m-auto  sm:${pay} sm:flex `}>
       {elment}
       </div>
       <div className={` bg-teal-500 p-3.5 text-center hover:bg-teal-400 text-white sm:hidden `} onClick={humborger}  ><GiHamburgerMenu /></div>
