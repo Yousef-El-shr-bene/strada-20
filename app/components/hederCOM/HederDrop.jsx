@@ -32,7 +32,6 @@ export default function HederDrop() {
   }
   return (
     <>
-    
 <div className={`flex items-center justify-between bg-black  font-bold text-lg border-b-4 border-b-orange-200`}>   
     <label className="sr-only">Search</label>
     <div className={`relative w-full ${serch}`}>
@@ -52,7 +51,6 @@ export default function HederDrop() {
       {elment}
     </div>
 </div>
-
     </>
   )
 }
