@@ -6,7 +6,7 @@ export default function ShopNow() {
     <div className="flex justify-center items-center pt-10 bg-slate-900 h-72 ">
 
       <Image
-        className="h-full w-2/3 "
+        className="h-full w-2/3 sm:w-2/4 "
         src="/testT.png"
         width={1000}
         height={1100}

@@ -4,7 +4,7 @@ import { AiOutlineShopping } from "react-icons/ai";
 import {VscAccount} from "react-icons/vsc"
 import { Vazirmatn } from 'next/font/google'
 import HederDrop from "./HederDrop"
-// import React,{useState} from "react"
+import Link from "next/link";
 const vazirmatn = Vazirmatn({
   subsets: ['arabic'],
 })
@@ -24,9 +24,9 @@ export default function Heder() {
       </div>
       </div>
       <div className="flex" >
-      <div className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
+      <Link href="/Cart" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
         <AiOutlineShopping className="w-5 h-5 text-white hover:text-teal-500" />
-      </div>
+      </Link>
       <div className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
         <VscAccount className="w-5 h-5 text-white hover:text-teal-500" />
       </div>

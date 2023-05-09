@@ -47,7 +47,7 @@ export default function HederDrop() {
       <div className={`hidden text-white font-medium text-sm m-auto  sm:${pay} sm:flex `}>
       {elment}
       </div>
-      <div className={` bg-teal-500 p-3.5 text-center hover:bg-teal-400 text-white sm:hidden `} onClick={humborger}  ><GiHamburgerMenu /></div>
+     <div className={` bg-teal-500 p-3.5 text-center hover:bg-teal-400 text-white sm:hidden `} onClick={humborger}  ><GiHamburgerMenu /></div>
     <div className={`absolute text-white right-0 top-11 bg-slate-950 ${borger === false ? "hidden" : ""} sm:hidden `} >
       {elment}
     </div>
