@@ -5,7 +5,7 @@ import MostSelles from "../../components/homeCOM/MostSelles"
 import Colorpalet from "../../components/storeCOM/Colorpalet"
 import { useState } from "react";
 export default function CrdInfo({ params }: { params: string }) {
-  const [chose , setchose] = useState({color : false , size : false})
+  const [chose , setchose] = useState({color : "" , size : "" } )
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">
@@ -17,7 +17,33 @@ export default function CrdInfo({ params }: { params: string }) {
         height={1100}
         alt="img"
         />
-          <Colorpalet setchose={setchose} chose={chose} />
+        <>
+      <div className="flex justify-center items-center">
+        <div className="m-1.5 p-1.5 rounded bg-black"></div>
+        <div className="m-1.5 p-1.5 rounded bg-white"></div>
+      </div>
+
+      <div className="flex justify-center items-center border-t-2 border-black border-solid ">
+        <div
+         className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "sm" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" }`}
+         onClick={ () => setchose({ color: chose.color , size: "ms" })}
+        >
+          sm
+        </div>
+        <div
+          className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "L" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" }`}
+          onClick={ () => setchose({ color: chose.color, size: "L" })}
+        >
+          L
+        </div>
+        <div
+          className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "xL" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" } `}
+          onClick={() => setchose({ color: chose.color, size: "xL" })}
+        >
+          xL
+        </div>
+      </div>
+    </>
         </div>
         <div className="h-auto flex-grow flex flex-col justify-center items-center text-white">
           <h1 className="bg-teal-500 hover:bg-teal-400 rounded-full m-2 p-2 font-bold text-xl "  >طلب الان</h1>
