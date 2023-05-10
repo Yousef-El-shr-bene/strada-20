@@ -15,9 +15,8 @@ export default function Acount() {
         <div className="sm:w-auto w-full  " >
         <HowWeArr />  
         </div>
-
       </div>
-      <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded p-3 m-3 ">
+      <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-20 m-3 ">
         <input
           placeholder="email"
           type="text"
