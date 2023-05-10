@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import HowWeArr from "../components/homeCOM/HowWeArr";
 import Link from "next/link";
-export default function () {
+export default function Acount() {
   return (
     <div className="w-full h-screen flex justify-around items-center flex-col sm:flex-row  ">
       <div className="flex justify-center items-center flex-col w-2/6 h-auto ">
