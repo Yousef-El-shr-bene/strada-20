@@ -27,9 +27,9 @@ export default function Heder() {
       <Link href="/Cart" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
         <AiOutlineShopping className="w-5 h-5 text-white hover:text-teal-500" />
       </Link>
-      <div className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
+      <Link href="/acount" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
         <VscAccount className="w-5 h-5 text-white hover:text-teal-500" />
-      </div>
+      </Link>
       </div>
     </header>
     <div className="drop-shadow-2xl" >
