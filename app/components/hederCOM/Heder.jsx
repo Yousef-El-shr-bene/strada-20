@@ -6,13 +6,13 @@ import { Vazirmatn } from 'next/font/google'
 import HederDrop from "./HederDrop"
 import Link from "next/link";
 const vazirmatn = Vazirmatn({
-  subsets: ['arabic'],
+   subsets: ['arabic'],
 })
 export default function Heder() {
-  return (
+   return (
     <>
-    <div className="heder top-0 w-full " >
-    <header className={`${vazirmatn.className} flex flex-row-reverse flex-nowrap justify-around items-center w-full h-20 drop-shadow-2xl bg-white`}>
+     <div className="heder top-0 w-full " >
+     <header className={`${vazirmatn.className} flex flex-row-reverse flex-nowrap justify-around items-center w-full h-20 drop-shadow-2xl bg-white`}>
       <div className="flex flex-row-reverse h-auto w-auto  " >
         <div className=" flex bg-black w-20 h-20 justify-center items-center " >
       <Image
@@ -24,7 +24,7 @@ export default function Heder() {
       </div>
       </div>
       <div className="flex" >
-      <Link href="/Cart" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
+      <Link href="/cart" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
         <AiOutlineShopping className="w-5 h-5 text-white hover:text-teal-500" />
       </Link>
       <Link href="/acount" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
