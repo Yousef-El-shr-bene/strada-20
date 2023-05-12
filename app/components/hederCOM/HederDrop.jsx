@@ -17,7 +17,7 @@ export default function HederDrop() {
         <Link href='/store' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تسوق الان</p></Link>
        <p className=' text-center p-3 border-x border-white hover:text-teal-500' >Rewards program</p>
         <p className=' text-center p-3 border-x border-white hover:text-teal-500' >custom logo</p>
-        <Link href='/connect' className=' text-center p-3 border-x border-white hover:text-teal-500' >تواصل معنا</Link>
+       <Link href='/connect'> <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تواصل معنا</p></Link>
   </>
   function onserch() {
     if (serch === "hidden") {
