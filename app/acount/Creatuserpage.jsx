@@ -25,7 +25,6 @@ export default function Creatuserpage() {
     await signIn("credentials",{
         username : username,
         password : password,
-        callbackUrl : "/"
     })
     setloding(false)
   }
