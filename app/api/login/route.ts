@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { User } from "@prisma/client";
 import * as bcrypt from 'bcrypt'
 interface requestBody {
   username: string;
@@ -12,7 +13,7 @@ interface Body {
 }
 export async function POST(request: Request) {
     const body : requestBody = await request.json()
-    const user = await prisma.user.findFirst({
+    const user : User | null  = await prisma.user.findFirst({
         where:{
             email:body.username
         }
