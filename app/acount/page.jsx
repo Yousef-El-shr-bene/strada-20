@@ -1,13 +1,57 @@
 "use client"
-import React from "react";
+import HowWeArr from "../components/homeCOM/HowWeArr";
+import Image from "next/image";
+import { signIn } from "next-auth/react";
+import React , {useRef,useState} from "react";
 import Creatuserpage from "./Creatuserpage";
 import { useSession ,signOut } from "next-auth/react";
+import UserData from "./UserData"
 export default function Acount() {
   const {data : session} = useSession()
-  
-  return (<>
-        { session && session.user ? <><h1 onClick={() => signOut()} >you ar loging in as: {session.user.name} </h1></> : <Creatuserpage/> }
-    </>
+  const refUsername = useRef();
+  const refPassword = useRef();
+  const [loding, setloding] = useState(false);
+  async function logingin() {
+    setloding(true)
+    const username = refUsername.current.value;
+    const password = refPassword.current.value;
+    // await fetch("/api/login", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     password: password,
+    //     username: username,
+    //   }),
+    // }).then(async (d)=>{
+    //   const data = await d.json()
+    //   console.log(data);
+    // });
+    await signIn("credentials",{
+        username : username,
+        password : password,
+    })
+    setloding(false)
+  }
+  console.log(session);
+  return (
+        <>
+        <div className="w-full h-screen flex justify-around items-center flex-col-reverse sm:flex-row-reverse ">
+          <div className="flex justify-center items-center flex-col w-fit sm:w-2/6 h-auto ">
+            <Image
+              className=" h-20 w-20 m-4 p-4 bg-black rounded "
+              src="/st.png"
+              width={100}
+              height={100}
+              alt="img"
+            />
+            <div className="sm:w-auto w-full  ">
+              <HowWeArr />
+            </div>
+          </div>
+          <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-10 py-3 m-3 ">
+          {session && session.user ?  <UserData session={session}  /> :  <Creatuserpage loding={loding} logingin={logingin} refPassword={refPassword} refUsername={refUsername} /> }
+          </div>
+        </div>
+      </>
   );
 }
  
