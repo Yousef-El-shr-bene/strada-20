@@ -11,10 +11,12 @@ export async function POST(request: Request) {
             email:body.username
         }
     })
-    console.log(user);
-    if (user && (await bcrypt.compare(body.password , user.password))) {
+    const Body : any = user
+    if (user !== null && (await bcrypt.compare(body.password , Body.password))) {
         const {password , ...userWithawitpassword} = user
         return new Response(JSON.stringify(userWithawitpassword))
+    }else if (Body === null ) {
+        return new Response(JSON.stringify(null))
     }
-    return new Response(JSON.stringify(null))
+
 }
