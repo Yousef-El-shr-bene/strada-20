@@ -16,7 +16,7 @@ const handler = NextAuth({
           },
           async authorize(credentials, req) {
             // Add logic here to look up the user from the credentials supplied
-            const res = await fetch(`${process.env.NEXTAUTH_URL}/api/login` , {
+            const res = await fetch(`https://strada-20.vercel.app/api/login` , {
                 method : "POST",
                 headers : {"content-Type" : "application/json" } ,
                 body : JSON.stringify({
