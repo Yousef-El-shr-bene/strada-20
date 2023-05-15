@@ -6,13 +6,13 @@ export default function Home() {
     <div className='flex flex-col' >
     {/* <Filter/> */}
     <div className='flex flex-wrap justify-center items-center' >
-    <Crd/>
-    <Crd/>
-    <Crd/>
-    <Crd/>
-    <Crd/>
-    <Crd/>
-    <Crd/>
+    <Crd id={undefined}/>
+    <Crd id={undefined}/>
+    <Crd id={undefined}/>
+    <Crd id={undefined}/>
+    <Crd id={undefined}/>
+    <Crd id={undefined}/>
+    <Crd id={undefined}/>
     </div>
     </div>
 </>

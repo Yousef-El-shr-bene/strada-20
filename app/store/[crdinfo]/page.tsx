@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import New from "../../components/homeCOM/New"
+import Newcrds from "../../components/homeCOM/Newcrds"
 import MostSelles from "../../components/homeCOM/MostSelles"
 import Colorpalet from "../../components/storeCOM/Colorpalet"
 import { useState } from "react";
@@ -51,7 +51,7 @@ export default function CrdInfo({ params }: { params: string }) {
         </div>
       </div>
       <div>
-    <New/>
+    <Newcrds/>
     <MostSelles/>
       </div>
     </>

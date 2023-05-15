@@ -1,7 +1,6 @@
 import Card from './component/Card'
 import getnewst from '../../../lib/getnewst'
-import { promises } from 'dns'
-export default async function MostSelles() {
+export default async function Newcrds() {
 const data  = await getnewst()
 console.log(data);
 
