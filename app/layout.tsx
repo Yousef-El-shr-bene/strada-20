@@ -1,6 +1,7 @@
 import './globals.css'
 import Heder from "./components/hederCOM/Heder"
 import { Vazirmatn } from 'next/font/google'
+import Providers from "./components/auth/providers"
 //
 const vazirmatn = Vazirmatn({
   subsets: ['arabic'],
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`h-full w-full ${vazirmatn.className} `} >
+        <Providers>
         <Heder/>
         {children}
+        </Providers>
         </body>
     </html>
   )

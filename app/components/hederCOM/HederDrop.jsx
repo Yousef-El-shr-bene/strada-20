@@ -15,9 +15,9 @@ export default function HederDrop() {
   const elment = <>
        <Link href='/' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >الرئيسية</p></Link>
         <Link href='/store' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تسوق الان</p></Link>
-       <p className=' text-center p-3 border-x border-white hover:text-teal-500' >Rewards program</p>
-        <p className=' text-center p-3 border-x border-white hover:text-teal-500' >custom logo</p>
-        <Link href='/connect' className=' text-center p-3 border-x border-white hover:text-teal-500' >تواصل معنا</Link>
+      <Link href='/customLogo' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >Rewards program</p> </Link>
+      <Link href='/rewardsProgram' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >custom logo</p> </Link>
+       <Link href='/connect'> <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تواصل معنا</p></Link>
   </>
   function onserch() {
     if (serch === "hidden") {
