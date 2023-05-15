@@ -10,18 +10,17 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "Items" (
+CREATE TABLE "imgdata" (
     "id" SERIAL NOT NULL,
     "text" TEXT NOT NULL,
     "url" TEXT NOT NULL,
-    "published" BOOLEAN NOT NULL DEFAULT false,
-    "authorId" INTEGER NOT NULL,
+    "UserCrtid" INTEGER,
 
-    CONSTRAINT "Items_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "imgdata_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- AddForeignKey
-ALTER TABLE "Items" ADD CONSTRAINT "Items_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "imgdata" ADD CONSTRAINT "imgdata_UserCrtid_fkey" FOREIGN KEY ("UserCrtid") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

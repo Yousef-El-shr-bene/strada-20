@@ -28,14 +28,13 @@ model User {
   name  String?
   password String
   phone String
-  items Items[]
+  items imgdata[]
 }
 
-model Items {
+model imgdata {
   id        Int     @id @default(autoincrement())
   text      String
   url       String
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+  UserCrt    User?    @relation(fields: [UserCrtid], references: [id])
+  UserCrtid  Int?
 }

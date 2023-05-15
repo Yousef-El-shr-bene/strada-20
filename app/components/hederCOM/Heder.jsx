@@ -25,7 +25,7 @@ export default function Heder() {
       </div>
       </div>
       <div className="flex" >
-      <Link href="/Cart" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
+      <Link href="/cart" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >
         <AiOutlineShopping className="w-5 h-5 text-white hover:text-teal-500" />
       </Link>
       <Link href="/acount" className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3" >

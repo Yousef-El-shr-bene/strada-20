@@ -16,7 +16,7 @@ const handler = NextAuth({
           },
           async authorize(credentials, req) {
             // Add logic here to look up the user from the credentials supplied
-            const res = await fetch(`https://strada-20.vercel.app/api/login` , {
+            const res = await fetch(`${process.env.NEXTAUTH_URL}/api/login` , {
                 method : "POST",
                 headers : {"content-Type" : "application/json" } ,
                 body : JSON.stringify({
@@ -26,7 +26,6 @@ const handler = NextAuth({
                 
             })
           const user = await res.json()
-
             if (user) {
               // Any object returned will be saved in `user` property of the JWT
               return user
@@ -37,6 +36,9 @@ const handler = NextAuth({
             }
           }
         })
-      ]
+      ],
+      pages: {
+        signIn : '/acount'
+      }
     })
   export {handler as GET ,handler as POST}
