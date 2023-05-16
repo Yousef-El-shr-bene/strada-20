@@ -3,8 +3,8 @@ import Card from '../components/homeCOM/component/Card'
 import getnewst from "../../lib/getnewst"
 
 
-export default function Cart(/*{imgdata}*/) {
-const imgdata = getnewst()
+export default async function Cart(/*{imgdata}*/) {
+const imgdata = await getnewst()
 
   return (
     <div className='flex justify-center items-center ' >
