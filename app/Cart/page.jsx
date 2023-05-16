@@ -1,14 +1,10 @@
 import React from 'react'
 import Card from '../components/homeCOM/component/Card'
+import getnewst from "../../lib/getnewst"
 
-// export async function getStaticProps() {
-//   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
-//   const {imgdata} = await data.json()
-//   return { props: { imgdata },fallback: false };
-// }
 
 export default function Cart(/*{imgdata}*/) {
-
+const imgdata = getnewst()
 
   return (
     <div className='flex justify-center items-center ' >
@@ -18,7 +14,7 @@ export default function Cart(/*{imgdata}*/) {
         <button className='bg-teal-500 rounded text-white m-3 p-3 hover:bg-teal-400 ' >استكمال عملية الشراء</button>
       </div>
      <div className='flex flex-row justify-center items-center flex-wrap ' >
-     {/* {imgdata && imgdata.map((e,i)=>(<><Card id={e.id} text={e.text} url={e.url} key={i} /></>))} */}
+     {imgdata && imgdata.map((e,i)=>(<><Card id={e.id} text={e.text} url={e.url} key={i} /></>))}
       </div>
     </div>
   ) 
