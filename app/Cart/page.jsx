@@ -2,9 +2,9 @@ import React from 'react'
 import Card from '../components/homeCOM/component/Card'
 import getnewst from "../../lib/getnewst"
 
-
 export default async  function Cart() {
 const imgdata = await getnewst()
+
   return (
     <div className='flex justify-center items-center ' >
       <div className=' w-80 flex flex-col justify-center items-center border-2 border-solid border-black bg-teal-50 m-5 p-5 ' >
