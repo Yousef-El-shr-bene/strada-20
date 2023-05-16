@@ -1,20 +1,26 @@
-'use client'
+// 'use client'
 import Image from "next/image";
 import Newcrds from "../../components/homeCOM/Newcrds"
 import { useEffect, useState } from "react";
-export default function CrdInfo() {
-  const [chose , setchose] = useState({color : "" , size : "" } )
-  const [imgdata,setimgdata] = useState([])
-  useEffect( () => {
+export default async function  CrdInfo() {
+  //
+  const chose = {color : "" , size : "" }
+  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/getallcrds`)
+  const {imgdata} = await data.json()
 
-       fetch(`${process.env.NEXTAUTH_URL}/api/newst`).then(async(data)=>{
-        const res = await data.json() 
-        setimgdata(res);
-        console.log(res); 
-      }).catch((err)=>{
-        console.log(err);
-      })
-  } , [])
+  //
+  // const [chose , setchose] = useState({color : "" , size : "" })
+  // const [imgdata,setimgdata] = useState([])
+  // useEffect( () => {
+
+  //      fetch(`${process.env.NEXTAUTH_URL}/api/newst`).then(async(data)=>{
+  //       const res = await data.json() 
+  //       setimgdata(res);
+  //       console.log(res); 
+  //     }).catch((err)=>{
+  //       console.log(err);
+  //     })
+  // } , [])
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">
@@ -35,19 +41,19 @@ export default function CrdInfo() {
       <div className="flex justify-center items-center border-t-2 border-black border-solid ">
         <div
          className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "sm" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" }`}
-         onClick={ () => setchose({ color: chose.color , size: "ms" })}
+        //  onClick={ () => setchose({ color: chose.color , size: "ms" })}
         >
           sm
         </div>
         <div
           className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "L" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" }`}
-          onClick={ () => setchose({ color: chose.color, size: "L" })}
+          // onClick={ () => setchose({ color: chose.color, size: "L" })}
         >
           L
         </div>
         <div
           className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "xL" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" } `}
-          onClick={() => setchose({ color: chose.color, size: "xL" })}
+          // onClick={() => setchose({ color: chose.color, size: "xL" })}
         >
           xL
         </div>
