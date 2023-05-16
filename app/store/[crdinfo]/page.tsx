@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   return { props: { imgdata }, fallback: "blocking" };
 }
 
-export default function CrdInfo({ imgdata }) {
+export default function CrdInfo(/*{ imgdata }*/) {
   //
   const chose = { color: "", size: "" };
 
@@ -87,7 +87,7 @@ export default function CrdInfo({ imgdata }) {
         </div>
       </div>
       <div>
-        <Newcrds data={imgdata} />
+        {/* <Newcrds data={imgdata} /> */}
       </div>
     </>
   );

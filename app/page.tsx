@@ -20,14 +20,14 @@ export async function getStaticPaths() {
   return { props : { imgdata } };
 }
 
-export default function Home({imgdata}) {
+export default function Home(/*{imgdata}*/) {
 
   return (
     <main dir="rtl" className={`flex-col justify-center`}>
         <HomeAdd/>
         <ShopNow/>
         <BigAdd/>
-        <Newcrds data={imgdata} />
+        {/* <Newcrds data={imgdata} /> */}
         <HowWeArr/>
         <Rewards/>
         <CustomLogo/>
