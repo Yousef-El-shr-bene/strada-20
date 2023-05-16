@@ -3,9 +3,9 @@ import HowWeArr from "../components/homeCOM/HowWeArr";
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 import React , {useRef,useState} from "react";
-import Creatuserpage from "./Creatuserpage";
+import Creatuserpage from "../components/acountCOM/Creatuserpage";
 import { useSession ,signOut } from "next-auth/react";
-import UserData from "./UserData"
+import UserData from "../components/acountCOM/UserData"
 export default function Acount() {
   const {data : session} = useSession()
   const refUsername = useRef();

@@ -1,8 +1,5 @@
 import Card from './component/Card'
 
-
-
-
 export default function Newcrds({data}) {
   return (
     <div className='flex flex-col w-full bg-slate-800 justify-center items-center border-t-2 border-teal-500 ' >
