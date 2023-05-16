@@ -92,7 +92,3 @@ export default function CrdInfo(/*{ imgdata }*/) {
     </>
   );
 }
-
-CrdInfo.defaultProps = {
-  imgdata: null,
-};

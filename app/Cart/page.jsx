@@ -4,11 +4,10 @@ import Card from '../components/homeCOM/component/Card'
 export async function getStaticPaths() {
   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
   const {imgdata} = await data.json()
-  return { props: { imgdata } };
+  return { props: { imgdata },fallback: false };
 }
- 
 
-export default  function Cart(/*{imgdata}*/) {
+export default function Cart(/*{imgdata}*/) {
 
 
   return (
