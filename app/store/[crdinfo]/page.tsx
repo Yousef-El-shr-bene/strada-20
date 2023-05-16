@@ -9,7 +9,7 @@ import Newcrds from "../../components/homeCOM/Newcrds";
 //   return { props: { imgdata }, fallback: "blocking" };
 // }
 
-export default function CrdInfo(/*{ imgdata }*/) {
+export default async function CrdInfo(/*{ imgdata }*/) {
   //
   const chose = { color: "", size: "" };
 
