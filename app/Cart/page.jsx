@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../components/homeCOM/component/Card'
 import getnewst from "../../lib/getnewst"
 
-export default   function Cart() {
+export default function Cart() {
 // const imgdata = await getnewst()
 
   return (
