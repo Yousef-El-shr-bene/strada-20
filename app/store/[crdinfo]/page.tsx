@@ -1,31 +1,13 @@
 // 'use client'
 import Image from "next/image";
 import Newcrds from "../../components/homeCOM/Newcrds";
-// import { useEffect, useState } from "react";
+import getnewst from "../../../lib/getnewst"
 
-// export async function getStaticProps() {
-//   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`);
-//   const { imgdata } = await data.json();
-//   return { props: { imgdata }, fallback: "blocking" };
-// }
 
 export default async function CrdInfo(/*{ imgdata }*/) {
-  //
+  
   const chose = { color: "", size: "" };
-
-  //
-  // const [chose , setchose] = useState({color : "" , size : "" })
-  // const [imgdata,setimgdata] = useState([])
-  // useEffect( () => {
-
-  //      fetch(`${process.env.NEXTAUTH_URL}/api/newst`).then(async(data)=>{
-  //       const res = await data.json()
-  //       setimgdata(res);
-  //       console.log(res);
-  //     }).catch((err)=>{
-  //       console.log(err);
-  //     })
-  // } , [])
+  const imgdata = await getnewst()
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">
@@ -87,7 +69,7 @@ export default async function CrdInfo(/*{ imgdata }*/) {
         </div>
       </div>
       <div>
-        {/* <Newcrds data={imgdata} /> */}
+        <Newcrds data={imgdata} />
       </div>
     </>
   );
