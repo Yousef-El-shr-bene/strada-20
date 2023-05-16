@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 }
  
 
-export default  function Cart({imgdata}) {
+export default  function Cart(/*{imgdata}*/) {
 
 
   return (
@@ -19,7 +19,7 @@ export default  function Cart({imgdata}) {
         <button className='bg-teal-500 rounded text-white m-3 p-3 hover:bg-teal-400 ' >استكمال عملية الشراء</button>
       </div>
      <div className='flex flex-row justify-center items-center flex-wrap ' >
-     {imgdata && imgdata.map((e,i)=>(<><Card id={e.id} text={e.text} url={e.url} key={i} /></>))}
+     {/* {imgdata && imgdata.map((e,i)=>(<><Card id={e.id} text={e.text} url={e.url} key={i} /></>))} */}
       </div>
     </div>
   ) 

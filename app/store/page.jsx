@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   return { props : { imgdata } };
 }
 
-export default  function Home({imgdata}) {
+export default  function Home(/*{imgdata}*/) {
 
 
   return (
@@ -15,7 +15,7 @@ export default  function Home({imgdata}) {
     <div className='flex flex-col' >
     {/* <Filter/> */}
     <div className='flex flex-wrap justify-center items-center' >
-   {imgdata && imgdata.map((e ,i )=>(<><Card id={e.id} text={e.text} url={e.url}  key={i} /></>))}
+   {/* {imgdata && imgdata.map((e ,i )=>(<><Card id={e.id} text={e.text} url={e.url}  key={i} /></>))} */}
     </div>
     </div>
 </>
