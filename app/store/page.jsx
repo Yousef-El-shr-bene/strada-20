@@ -2,7 +2,7 @@ import Card from '../components/homeCOM/component/Card'
 import Filter from '../components/storeCOM/filter'
 
 
-export default  async function Home({data}) {
+export default  async function Home() {
   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/getallcrds`)
   const {imgdata} = await data.json()
 
