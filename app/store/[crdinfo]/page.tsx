@@ -2,11 +2,22 @@
 import Image from "next/image";
 import Newcrds from "../../components/homeCOM/Newcrds"
 // import { useEffect, useState } from "react";
-export default async function  CrdInfo() {
+interface ImgeData {
+  id : number,
+  url : string,
+  text : string
+}
+export async function getStaticPaths() {
+  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
+  const {imgdata} = await data.json()
+  return { props : { imgdata } };
+}
+
+
+export default function  CrdInfo({imgdata} : ImgeData) {
   //
   const chose = {color : "" , size : "" }
-  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/getallcrds`)
-  const {imgdata} = await data.json()
+
 
   
   //
@@ -73,5 +84,7 @@ export default async function  CrdInfo() {
   );
 }
 
-
+CrdInfo.defaultProps = {
+  imgdata : null
+}
 

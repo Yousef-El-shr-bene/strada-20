@@ -1,11 +1,15 @@
 import React from 'react'
 import Card from '../components/homeCOM/component/Card'
 
-
-
-export default  async function Cart() {
+export async function getStaticPaths() {
   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
   const {imgdata} = await data.json()
+  return { props: { imgdata } };
+}
+ 
+
+export default  function Cart({imgdata}) {
+
 
   return (
     <div className='flex justify-center items-center ' >

@@ -14,10 +14,14 @@ const vazirmatn = Vazirmatn({
  subsets: ['arabic'],
 })
 
-
-export default async function Home() {
+export async function getStaticPaths() {
   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
   const {imgdata} = await data.json()
+  return { props : { imgdata } };
+}
+
+export default async function Home({imgdata}) {
+
   return (
     <main dir="rtl" className={`flex-col justify-center`}>
         <HomeAdd/>

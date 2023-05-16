@@ -1,10 +1,14 @@
 import Card from '../components/homeCOM/component/Card'
 import Filter from '../components/storeCOM/filter'
 
-
-export default  async function Home() {
-  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/getallcrds`)
+export async function getStaticPaths() {
+  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
   const {imgdata} = await data.json()
+  return { props : { imgdata } };
+}
+
+export default  async function Home({imgdata}) {
+
 
   return (
 <>
