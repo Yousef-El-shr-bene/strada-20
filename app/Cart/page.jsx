@@ -1,6 +1,12 @@
 import React from 'react'
-import Crd from '../components/homeCOM/component/Card'
-export default function Cart() {
+import Card from '../components/homeCOM/component/Card'
+
+
+
+export default  async function Cart() {
+  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
+  const {imgdata} = await data.json()
+
   return (
     <div className='flex justify-center items-center ' >
       <div className=' w-80 flex flex-col justify-center items-center border-2 border-solid border-black bg-teal-50 m-5 p-5 ' >
@@ -9,13 +15,8 @@ export default function Cart() {
         <button className='bg-teal-500 rounded text-white m-3 p-3 hover:bg-teal-400 ' >استكمال عملية الشراء</button>
       </div>
      <div className='flex flex-row justify-center items-center flex-wrap ' >
-        <Crd/>
-        <Crd/>
-        <Crd/>
-        <Crd/>
-        <Crd/>
-        <Crd/>
+     {imgdata && imgdata.map((e,i)=>(<><Card id={e.id} text={e.text} url={e.url} key={i} /></>))}
       </div>
     </div>
-  )
+  ) 
 }

@@ -35,8 +35,9 @@ export default function Heder() {
     </header>
     <div className="drop-shadow-2xl" >
       <HederDrop/>
+      
     </div>
-    </div>
+    </div> 
     </>
   );
 }

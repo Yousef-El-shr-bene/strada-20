@@ -1,11 +1,27 @@
-'use client'
+// 'use client'
 import Image from "next/image";
-import New from "../../components/homeCOM/New"
-import MostSelles from "../../components/homeCOM/MostSelles"
-import Colorpalet from "../../components/storeCOM/Colorpalet"
-import { useState } from "react";
-export default function CrdInfo({ params }: { params: string }) {
-  const [chose , setchose] = useState({color : "" , size : "" } )
+import Newcrds from "../../components/homeCOM/Newcrds"
+// import { useEffect, useState } from "react";
+export default async function  CrdInfo() {
+  //
+  const chose = {color : "" , size : "" }
+  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/getallcrds`)
+  const {imgdata} = await data.json()
+
+  
+  //
+  // const [chose , setchose] = useState({color : "" , size : "" })
+  // const [imgdata,setimgdata] = useState([])
+  // useEffect( () => {
+
+  //      fetch(`${process.env.NEXTAUTH_URL}/api/newst`).then(async(data)=>{
+  //       const res = await data.json() 
+  //       setimgdata(res);
+  //       console.log(res); 
+  //     }).catch((err)=>{
+  //       console.log(err);
+  //     })
+  // } , [])
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">
@@ -26,19 +42,19 @@ export default function CrdInfo({ params }: { params: string }) {
       <div className="flex justify-center items-center border-t-2 border-black border-solid ">
         <div
          className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "sm" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" }`}
-         onClick={ () => setchose({ color: chose.color , size: "ms" })}
+        //  onClick={ () => setchose({ color: chose.color , size: "ms" })}
         >
           sm
         </div>
         <div
           className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "L" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" }`}
-          onClick={ () => setchose({ color: chose.color, size: "L" })}
+          // onClick={ () => setchose({ color: chose.color, size: "L" })}
         >
           L
         </div>
         <div
           className={`m-1 p-1 rounded border-2 border-black border-solid ${chose.size === "xL" ? "bg-slate-800 text-white" : "hover:bg-slate-800 hover:text-white" } `}
-          onClick={() => setchose({ color: chose.color, size: "xL" })}
+          // onClick={() => setchose({ color: chose.color, size: "xL" })}
         >
           xL
         </div>
@@ -51,8 +67,7 @@ export default function CrdInfo({ params }: { params: string }) {
         </div>
       </div>
       <div>
-    <New/>
-    <MostSelles/>
+    <Newcrds data={imgdata} />
       </div>
     </>
   );
