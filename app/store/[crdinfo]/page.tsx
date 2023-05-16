@@ -1,11 +1,19 @@
 'use client'
 import Image from "next/image";
 import Newcrds from "../../components/homeCOM/Newcrds"
-import MostSelles from "../../components/homeCOM/MostSelles"
-import Colorpalet from "../../components/storeCOM/Colorpalet"
-import { useState } from "react";
-export default function CrdInfo({ params }: { params: string }) {
+import { useEffect, useState } from "react";
+export default function CrdInfo() {
   const [chose , setchose] = useState({color : "" , size : "" } )
+  const [imgdata,setimgdata] = useState([])
+  useEffect( () => {
+       fetch(`${process.env.NEXTAUTH_URL}/api/newst`).then(async(data)=>{
+        const res = await data.json() 
+        setimgdata(res);
+      }).catch((err)=>{
+        console.log(err);
+        
+      })
+  } , [])
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">
@@ -51,7 +59,7 @@ export default function CrdInfo({ params }: { params: string }) {
         </div>
       </div>
       <div>
-    <Newcrds/>
+    {/* <Newcrds data={imgdata} /> */}
       </div>
     </>
   );
