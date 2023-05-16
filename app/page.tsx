@@ -14,13 +14,16 @@ const vazirmatn = Vazirmatn({
  subsets: ['arabic'],
 })
 
-export default function Home() {
+
+export default async function Home() {
+  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
+  const {imgdata} = await data.json()
   return (
     <main dir="rtl" className={`flex-col justify-center`}>
         <HomeAdd/>
         <ShopNow/>
         <BigAdd/>
-        <Newcrds/>
+        <Newcrds data={imgdata} />
         <HowWeArr/>
         <Rewards/>
         <CustomLogo/>
