@@ -6,12 +6,13 @@ export default function CrdInfo() {
   const [chose , setchose] = useState({color : "" , size : "" } )
   const [imgdata,setimgdata] = useState([])
   useEffect( () => {
+
        fetch(`${process.env.NEXTAUTH_URL}/api/newst`).then(async(data)=>{
         const res = await data.json() 
         setimgdata(res);
+        console.log(res); 
       }).catch((err)=>{
         console.log(err);
-        
       })
   } , [])
   return (
@@ -59,7 +60,7 @@ export default function CrdInfo() {
         </div>
       </div>
       <div>
-    {/* <Newcrds data={imgdata} /> */}
+    <Newcrds data={imgdata} />
       </div>
     </>
   );
