@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   return { props : { imgdata } };
 }
 
-export default  async function Home({imgdata}) {
+export default  function Home({imgdata}) {
 
 
   return (
