@@ -1,11 +1,12 @@
 import React from 'react'
 import Card from '../components/homeCOM/component/Card'
 export default  function Cart() {
-  const imgdata = async () => {
+  async function imgdatafun() {
     const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
     const imgdata = await data.json()
     return imgdata
   }
+  const imgdata =  imgdatafun() 
   return (
     <div className='flex justify-center items-center ' >
       <div className=' w-80 flex flex-col justify-center items-center border-2 border-solid border-black bg-teal-50 m-5 p-5 ' >

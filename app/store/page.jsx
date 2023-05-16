@@ -1,11 +1,13 @@
 import Card from '../components/homeCOM/component/Card'
 import Filter from '../components/storeCOM/filter'
 export default  function Home() {
-  const imgdata = async () => {
+  async function imgdatafun () {
     const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
     const imgdata = await data.json()
     return imgdata
   }
+  const imgdata =  imgdatafun() 
+  
   return (
 <>
     <div className='flex flex-col' >
