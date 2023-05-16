@@ -3,11 +3,11 @@ import Image from "next/image";
 import Newcrds from "../../components/homeCOM/Newcrds";
 // import { useEffect, useState } from "react";
 
-export async function getStaticProps() {
-  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`);
-  const { imgdata } = await data.json();
-  return { props: { imgdata }, fallback: "blocking" };
-}
+// export async function getStaticProps() {
+//   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`);
+//   const { imgdata } = await data.json();
+//   return { props: { imgdata }, fallback: "blocking" };
+// }
 
 export default function CrdInfo(/*{ imgdata }*/) {
   //

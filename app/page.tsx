@@ -14,11 +14,11 @@ const vazirmatn = Vazirmatn({
  subsets: ['arabic'],
 })
 
-export async function getStaticProps() {
-  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
-  const {imgdata} = await data.json()
-  return { props : { imgdata },fallback: false };
-}
+// export async function getStaticProps() {
+//   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`)
+//   const {imgdata} = await data.json()
+//   return { props : { imgdata },fallback: false };
+// }
 
 export default function Home(/*{imgdata}*/) {
 
