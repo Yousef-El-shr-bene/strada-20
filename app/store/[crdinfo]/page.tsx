@@ -1,13 +1,14 @@
 // 'use client'
 import Image from "next/image";
 import Newcrds from "../../components/homeCOM/Newcrds"
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 export default async function  CrdInfo() {
   //
   const chose = {color : "" , size : "" }
   const data = await fetch(`${process.env.NEXTAUTH_URL}/api/getallcrds`)
   const {imgdata} = await data.json()
 
+  
   //
   // const [chose , setchose] = useState({color : "" , size : "" })
   // const [imgdata,setimgdata] = useState([])
