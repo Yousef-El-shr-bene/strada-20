@@ -13,7 +13,7 @@ export default  function Home() {
     <div className='flex flex-col' >
     {/* <Filter/> */}
     <div className='flex flex-wrap justify-center items-center' >
-   {imgdata.imgdata.map((e ,i )=>(<><Card id={e.id} text={e.text} url={e.url}  key={i} /></>))}
+   {imgdata && imgdata.imgdata.map((e ,i )=>(<><Card id={e.id} text={e.text} url={e.url}  key={i} /></>))}
     </div>
     </div>
 </>
