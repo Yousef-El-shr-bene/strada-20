@@ -15,23 +15,13 @@ export default function Acount() {
     setloding(true)
     const username = refUsername.current.value;
     const password = refPassword.current.value;
-    // await fetch("/api/login", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     password: password,
-    //     username: username,
-    //   }),
-    // }).then(async (d)=>{
-    //   const data = await d.json()
-    //   console.log(data);
-    // });
+
     await signIn("credentials",{
         username : username,
         password : password,
     })
     setloding(false)
   }
-  console.log(session);
   return (
         <>
         <div className="w-full h-screen flex justify-around items-center flex-col-reverse sm:flex-row-reverse ">

@@ -7,7 +7,7 @@ export default function CustomLogo() {
     <div className='w-3/4  border-2 border-black rounded  p-12 text-center flex flex-col ' >
     <p className='p-3' >في حالة كنت جرفيك ديزينر سوف نقدم لك خدمة اللوجو المخصص  </p>  
     <p className='p-3' >وهي عبارة عن انك سوف ترسل لنا تصميمك وفي حالة شراء المنتج ستحصل علي نسبة من السعر الكلي نظير اللوجو الخاص بك .</p>
-    <Link href='/' className='bg-teal-500 text-white rounded p-3 hover:bg-teal-400  ' >custom logo</Link>
+    <Link href='/customLogo' className='bg-teal-500 text-white rounded p-3 hover:bg-teal-400  ' >custom logo</Link>
     </div>
     </div>
   )

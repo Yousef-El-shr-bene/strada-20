@@ -20,7 +20,6 @@ export default function Home() {
         <HomeAdd/>
         <ShopNow/>
         <BigAdd/>
-        <MostSelles/>
         <Newcrds/>
         <HowWeArr/>
         <Rewards/>

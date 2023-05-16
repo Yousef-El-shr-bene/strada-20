@@ -52,7 +52,6 @@ export default function CrdInfo({ params }: { params: string }) {
       </div>
       <div>
     <Newcrds/>
-    <MostSelles/>
       </div>
     </>
   );

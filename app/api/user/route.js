@@ -20,7 +20,6 @@ if (body.name === "" || body.email === "" || body.phone === "" || body.password 
       phone:body.phone
     },
   });
-  console.log(user);
   return new Response(JSON.stringify({ok:"ok"}));
 }
 //
