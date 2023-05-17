@@ -7,7 +7,7 @@ import Creatuserpage from "../components/acountCOM/Creatuserpage";
 import { useSession  } from "next-auth/react";
 import UserData from "../components/acountCOM/UserData"
 export default function Acount() {
-  const {data : session} = useSession()
+  const {data : session ,status} = useSession()
   const refUsername = useRef();
   const refPassword = useRef();
   const [loding, setloding] = useState(false);
@@ -19,9 +19,6 @@ export default function Acount() {
     const username = refUsername.current.value;
     const password = refPassword.current.value;
     //
-
-
-
     if (
       username === "" ||
       password === "" 
@@ -37,17 +34,12 @@ export default function Acount() {
       await signIn("credentials",{
         username : username,
         password : password,
-        redirect : false
+        redirect : false,
     })
-    if (session === null) {
-      setrong("The email or password is incorrect")
-    }
+    console.log(status);
     }
     setloding(false)
-
-
     //
-
   }
   return (
         <>
@@ -66,6 +58,7 @@ export default function Acount() {
           </div>
           <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-10 py-3 m-3 ">
           {session && session.user  ?  <UserData session={session}  /> :  <Creatuserpage loding={loding} logingin={logingin} refPassword={refPassword} refUsername={refUsername} /> }
+          <h1>{rong}</h1>
           </div>
         </div>
       </>
