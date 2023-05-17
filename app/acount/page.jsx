@@ -59,8 +59,8 @@ export default function Acount() {
             </div>
           </div>
           <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-10 py-3 m-3 ">
-          {session && session.user  ?  <UserData session={session}  /> :  <Creatuserpage loding={loding} logingin={logingin} refPassword={refPassword} refUsername={refUsername} /> }
-          <h1 className="text-lg font-bold" >{rong}</h1>
+          {session && session.user  ?  <><UserData session={session}  /><h1 className="text-lg font-bold" >{rong}</h1></> :  <Creatuserpage loding={loding} logingin={logingin} refPassword={refPassword} refUsername={refUsername} /> }
+          
           </div>
         </div>
       </>
