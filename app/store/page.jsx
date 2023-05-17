@@ -1,10 +1,10 @@
 import Card from '../components/homeCOM/component/Card'
 import Filter from '../components/storeCOM/filter'
-import getnewst from "../../lib/getnewst"
+import getallcrds from "../../lib/getallcrds"
 
 
 export default async  function Home() {
-  const imgdata = await getnewst()
+  const imgdata = await getallcrds()
 
   return (
 <>
