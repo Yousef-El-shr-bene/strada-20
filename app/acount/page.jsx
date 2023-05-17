@@ -61,15 +61,17 @@ export default function Acount() {
           {session && session.user ? (
             <>
               <UserData session={session} />
-              <h1 className="text-lg font-bold">{rong}</h1>
             </>
           ) : (
+            <>
             <Creatuserpage
               loding={loding}
               logingin={logingin}
               refPassword={refPassword}
               refUsername={refUsername}
             />
+            <h1 className="text-lg font-bold">{rong}</h1>
+            </>
           )}
         </div>
       </div>
