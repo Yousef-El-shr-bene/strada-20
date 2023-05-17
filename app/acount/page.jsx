@@ -11,19 +11,43 @@ export default function Acount() {
   const refUsername = useRef();
   const refPassword = useRef();
   const [loding, setloding] = useState(false);
+  const [rong, setrong] = useState("");
   console.log(session,"out");
   async function logingin() {
     setloding(true)
+    setrong("")
     const username = refUsername.current.value;
     const password = refPassword.current.value;
+    //
 
-    await signIn("credentials",{
+
+
+    if (
+      username === "" ||
+      password === "" 
+    ) {
+      setrong("empty fields");
+    } else if (
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(username) === false
+    ) {
+      setrong("You have entered an invalid email address!");
+    } else if (password.length < 8) {
+      setrong("password should contin more than 7 characters or Numbers");
+    } else {
+      await signIn("credentials",{
         username : username,
         password : password,
         redirect : false
     })
-    console.log(session,"in");
+    if (session === null) {
+      setrong("The email or password is incorrect")
+    }
+    }
     setloding(false)
+
+
+    //
+
   }
   return (
         <>
