@@ -4,13 +4,14 @@ import Image from "next/image";
 import { signIn } from "next-auth/react";
 import React , {useRef,useState} from "react";
 import Creatuserpage from "../components/acountCOM/Creatuserpage";
-import { useSession ,signOut } from "next-auth/react";
+import { useSession  } from "next-auth/react";
 import UserData from "../components/acountCOM/UserData"
 export default function Acount() {
   const {data : session} = useSession()
   const refUsername = useRef();
   const refPassword = useRef();
   const [loding, setloding] = useState(false);
+  console.log(session,"out");
   async function logingin() {
     setloding(true)
     const username = refUsername.current.value;
@@ -19,7 +20,9 @@ export default function Acount() {
     await signIn("credentials",{
         username : username,
         password : password,
+        redirect : false
     })
+    console.log(session,"in");
     setloding(false)
   }
   return (
@@ -38,7 +41,7 @@ export default function Acount() {
             </div>
           </div>
           <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-10 py-3 m-3 ">
-          {session && session.user ?  <UserData session={session}  /> :  <Creatuserpage loding={loding} logingin={logingin} refPassword={refPassword} refUsername={refUsername} /> }
+          {session && session.user  ?  <UserData session={session}  /> :  <Creatuserpage loding={loding} logingin={logingin} refPassword={refPassword} refUsername={refUsername} /> }
           </div>
         </div>
       </>

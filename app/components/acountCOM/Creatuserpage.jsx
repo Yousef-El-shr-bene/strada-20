@@ -1,7 +1,4 @@
-"use client";
 import Link from "next/link";
-
-
 export default function Creatuserpage({loding,refUsername,refPassword,logingin}) {
 
   return (

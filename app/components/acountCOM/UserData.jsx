@@ -8,11 +8,11 @@ export default function UserData({ session }) {
       <button
         className="bg-teal-500 hover:bg-teal-400 p-3 m-3 rounded text-white "
         onClick={() => {
-          signOut();
+          signOut() 
         }}
-      >
+      > 
         تسجيل الخروج
       </button>
     </>
-  );
-}
+ );
+ }
