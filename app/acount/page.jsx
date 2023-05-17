@@ -12,7 +12,6 @@ export default function Acount() {
   const refPassword = useRef();
   const [loding, setloding] = useState(false);
   const [rong, setrong] = useState("");
-  console.log(session, "out");
   async function logingin() {
     setloding(true);
     setrong("");
