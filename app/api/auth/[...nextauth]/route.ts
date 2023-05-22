@@ -25,6 +25,7 @@ const handler = NextAuth({
                 }),
                 
             })
+            
           const user = await res.json()
             if (user) {
               // Any object returned will be saved in `user` property of the JWT
@@ -38,7 +39,7 @@ const handler = NextAuth({
         })
       ],
       pages: {
-        signIn : '/acount'
+        signIn : '/acount',
       }
     })
   export {handler as GET ,handler as POST}

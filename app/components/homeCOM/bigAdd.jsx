@@ -11,7 +11,7 @@ export default function BigAdd() {
           width={1000}
           height={1100}
           alt="img"
-        />
+        /> 
         <div className="text-center text-white flex flex-col flex-nowrap w-full m-4 text-xs md:text-lg ">
           <h2>كل سنة وانتم طيبين بمناسبة عيد الفطر المبارك</h2>
           <h1> برومو كود : ead </h1>
