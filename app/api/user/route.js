@@ -15,7 +15,7 @@ if (body.name === "" || body.email === "" || body.phone === "" || body.password 
   const user = await prisma.user.create({
     data: {
       name: body.name,
-      email: body.email,
+      email: body.email, 
       password: await bcrypt.hash(body.password, 10),
       phone:body.phone
     },

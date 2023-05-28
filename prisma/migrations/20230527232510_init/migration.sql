@@ -13,7 +13,9 @@ CREATE TABLE "User" (
 CREATE TABLE "imgdata" (
     "id" SERIAL NOT NULL,
     "text" TEXT NOT NULL,
-    "url" TEXT NOT NULL,
+    "url" TEXT[],
+    "size" TEXT[],
+    "color" TEXT[],
     "UserCrtid" INTEGER,
 
     CONSTRAINT "imgdata_pkey" PRIMARY KEY ("id")

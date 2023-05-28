@@ -1,6 +1,7 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import { Jwt } from "jsonwebtoken";
+import { Session } from "inspector";
 const handler = NextAuth({
   providers: [
         CredentialsProvider({
@@ -40,6 +41,14 @@ const handler = NextAuth({
       ],
       pages: {
         signIn : '/acount',
+      },callbacks:{
+        async jwt({token,user}){
+          return ({...token,...user})
+        },
+        async session({session,token}){
+          session.user = token as any
+          return session
+        }
       }
     })
   export {handler as GET ,handler as POST}

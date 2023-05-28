@@ -8,10 +8,11 @@ import { useSession } from "next-auth/react";
 import UserData from "../components/acountCOM/UserData";
 export default function Acount() {
   const { data: session, status } = useSession();
-  const refUsername = useRef();
+  const refUsername = useRef(); 
   const refPassword = useRef();
   const [loding, setloding] = useState(false);
   const [rong, setrong] = useState("");
+  console.log(session);
   async function logingin() {
     setloding(true);
     setrong("");
