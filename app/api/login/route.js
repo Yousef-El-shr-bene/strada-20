@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import * as bcrypt from 'bcrypt'
+import signinWithJWT from "../../../lib/jwt";
 
 export async function POST(request) {
     const body   = await request.json()
@@ -9,9 +10,14 @@ export async function POST(request) {
         }
     })
     const Body = user
-    if (user !== null && (await bcrypt.compare(body.password , Body.password))) {
+    if (user && (await bcrypt.compare(body.password , Body.password))) {
         const {password , ...userWithawitpassword} = user
-        return new Response(JSON.stringify(userWithawitpassword))
+        const accessTocan = signinWithJWT(userWithawitpassword)
+        const result = {
+            ...userWithawitpassword,
+            accessTocan,
+        }
+        return new Response(JSON.stringify(result))
     }else if (Body === null ) {
         return new Response(JSON.stringify(null))
     }

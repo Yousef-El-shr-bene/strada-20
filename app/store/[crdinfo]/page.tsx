@@ -1,24 +1,28 @@
-// 'use client'
 import Image from "next/image";
 import Newcrds from "../../components/homeCOM/Newcrds";
 import getnewst from "../../../lib/getnewst"
+import getonecrd from "../../../lib/getonecrd"
+interface params {
+  crdinfo : string
+}
 
-
-export default async function CrdInfo(/*{ imgdata }*/) {
-  
-  const chose = { color: "", size: "" };
+export default async function CrdInfo({ params } : {params : params}) {
+  const id : BodyInit | null | undefined  = params.crdinfo
   const imgdata = await getnewst()
+  const onecrd = await getonecrd(id)
+  console.log(onecrd.url,"data");  
+  
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">
         <div className="w-10/12 sm:w-1/2 h-96  flex flex-col justify-center items-center rounded border-2 border-black border-solid">
           <Image
             className="h-full w-2/3 sm:w-2/4 "
-            src="/testT.png"
+            src={onecrd.url[0]}
             width={1000}
             height={1100}
             alt="img"
-          />
+          /> 
           <>
             <div className="flex justify-center items-center">
               <div className="m-1.5 p-1.5 rounded bg-black"></div>
@@ -27,31 +31,19 @@ export default async function CrdInfo(/*{ imgdata }*/) {
 
             <div className="flex justify-center items-center border-t-2 border-black border-solid ">
               <div
-                className={`m-1 p-1 rounded border-2 border-black border-solid ${
-                  chose.size === "sm"
-                    ? "bg-slate-800 text-white"
-                    : "hover:bg-slate-800 hover:text-white"
-                }`}
+                className={`m-1 p-1 rounded border-2 border-black border-solid`}
                 //  onClick={ () => setchose({ color: chose.color , size: "ms" })}
               >
                 sm
               </div>
               <div
-                className={`m-1 p-1 rounded border-2 border-black border-solid ${
-                  chose.size === "L"
-                    ? "bg-slate-800 text-white"
-                    : "hover:bg-slate-800 hover:text-white"
-                }`}
+                className={`m-1 p-1 rounded border-2 border-black border-solid`}
                 // onClick={ () => setchose({ color: chose.color, size: "L" })}
               >
                 L
               </div>
               <div
-                className={`m-1 p-1 rounded border-2 border-black border-solid ${
-                  chose.size === "xL"
-                    ? "bg-slate-800 text-white"
-                    : "hover:bg-slate-800 hover:text-white"
-                } `}
+                className={`m-1 p-1 rounded border-2 border-black border-solid`}
                 // onClick={() => setchose({ color: chose.color, size: "xL" })}
               >
                 xL
