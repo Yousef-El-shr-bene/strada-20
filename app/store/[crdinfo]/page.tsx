@@ -3,9 +3,8 @@ import Newcrds from "../../components/homeCOM/Newcrds";
 import getnewst from "../../../lib/getnewst"
 import getonecrd from "../../../lib/getonecrd"
 interface params {
-  crdinfo : string
+  crdinfo : string 
 }
-
 export default async function CrdInfo({ params } : {params : params}) {
   const id : BodyInit | null | undefined  = params.crdinfo
   const imgdata = await getnewst()
