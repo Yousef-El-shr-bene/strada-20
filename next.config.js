@@ -3,8 +3,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },images : {
-    domains : ["m.media-amazon.com"]
+    domains : ["contents.mediadecathlon.com"]
   }
 }
 
 module.exports = nextConfig
+

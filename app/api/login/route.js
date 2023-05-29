@@ -8,19 +8,8 @@ export async function POST(request) {
     const user   = await prisma.user.findFirst({
         where:{ 
             email:body.username
-        } 
-    })
-<<<<<<< HEAD
-    if (user !== null && (await bcrypt.compare(body.password , user.password))) {
-        const {password , ...userWithawitpassword} = user
-        const accessToken = signjwtaccessToken(userWithawitpassword)
-        const result = {
-            ...userWithawitpassword,
-            accessToken,
         }
-        return new Response(JSON.stringify(result))
-    }else if (body === null ) {
-=======
+    })
     const Body = user
     if (user && (await bcrypt.compare(body.password , Body.password))) {
         const {password , ...userWithawitpassword} = user
@@ -31,7 +20,6 @@ export async function POST(request) {
         }
         return new Response(JSON.stringify(result))
     }else if (Body === null ) {
->>>>>>> c2d2a666a98c3ae151b8e0856a7a7949a88c0b45
         return new Response(JSON.stringify(null))
     }
 }

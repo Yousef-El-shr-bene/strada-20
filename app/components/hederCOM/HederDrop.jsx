@@ -1,17 +1,20 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState ,useRef } from 'react'
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Vazirmatn } from 'next/font/google'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 //
 const vazirmatn = Vazirmatn({
  subsets: ['arabic'],
 })
 export default function HederDrop() {
+  const router = useRouter()
   const [serch,setserch] =  useState("hidden")
   const [pay,setpay] = useState("")
   const [borger , setborger] = useState(false)
+  const input = useRef(null)
   const elment = <>
        <Link href='/' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >الرئيسية</p></Link>
         <Link href='/store' > <p className=' text-center p-3 border-x border-white hover:text-teal-500' >تسوق الان</p></Link>
@@ -24,8 +27,14 @@ export default function HederDrop() {
       setserch("")
       setpay("hidden")
     }else{
-      setserch("hidden")
-      setpay("")
+      if (input.current.value === "") {
+        setserch("hidden")
+        setpay("")
+      } else {
+        setserch("hidden")
+        setpay("")
+        router.push(`/${input.current.value}`)
+      }
     }
   }
   function humborger() {
@@ -39,7 +48,7 @@ export default function HederDrop() {
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <AiOutlineSearch className="text-black w-5 h-5 " />
         </div>
-        <input type="text" id="simple-search" className={`bg-gray-50 border border-white text-gray-900 text-sm  focus:ring-teal-500 focus:border-teal-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 `} placeholder="Search" required />
+        <input ref={input} type="text" id="simple-search" className={`bg-gray-50 border border-white text-gray-900 text-sm  focus:ring-teal-500 focus:border-teal-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 `} placeholder="Search" required />
     </div>
     <div className="bg-teal-500 p-3.5 text-center hover:bg-teal-400 text-white" onClick={onserch} >
         <AiOutlineSearch />
