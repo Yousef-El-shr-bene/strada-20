@@ -1,8 +1,5 @@
 import React from 'react'
-import getonecrd from "../../lib/getonecrd"
 export default async function RewardsProgram() {
-  const data = await getonecrd(1)
-  console.log(await data); 
 return  (
     <div className='w-full flex justify-center items-center ' >
       <div></div>
