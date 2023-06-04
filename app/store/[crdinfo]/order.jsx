@@ -18,7 +18,7 @@ export default function Order({id,maindata}) {
     }
   return (
 <>
-<div className="h-auto flex-grow flex flex-col justify-center items-center text-white">
+<div className="h-auto flex-grow flex flex-col justify-center items-center text-white sm:w-1/5 w-full">
           <h1 className="bg-teal-500 hover:bg-teal-400 rounded-full m-2 p-2 font-bold text-xl ">
             طلب الان
           </h1>
