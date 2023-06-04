@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
 }
 
@@ -12,7 +12,6 @@ generator client {
 // }
 
 datasource db {
-
   provider = "postgresql"
 
   url = env("POSTGRES_PRISMA_URL") // uses connection pooling
@@ -20,24 +19,27 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
-  
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  password String
-  phone String
-  items imgdata[]
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String?
+  password  String
+  phone     String
+  itemsid   Int[]
 }
-
 model imgdata {
-  id        Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   text      String
   url       String[]
   size      String[]
   color     String[]
-  UserCrt    User?    @relation(fields: [UserCrtid], references: [id])
-  UserCrtid  Int?
+  prise     Int
+}
+
+model order {
+  id           Int       @id @default(autoincrement())
+  userlocation String
+  userid Int
 }

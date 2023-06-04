@@ -5,6 +5,7 @@ CREATE TABLE "User" (
     "name" TEXT,
     "password" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
+    "itemsid" INTEGER[],
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -16,13 +17,19 @@ CREATE TABLE "imgdata" (
     "url" TEXT[],
     "size" TEXT[],
     "color" TEXT[],
-    "UserCrtid" INTEGER,
+    "prise" INTEGER NOT NULL,
 
     CONSTRAINT "imgdata_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "order" (
+    "id" SERIAL NOT NULL,
+    "userlocation" TEXT NOT NULL,
+    "userid" INTEGER NOT NULL,
+
+    CONSTRAINT "order_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
-
--- AddForeignKey
-ALTER TABLE "imgdata" ADD CONSTRAINT "imgdata_UserCrtid_fkey" FOREIGN KEY ("UserCrtid") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

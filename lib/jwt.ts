@@ -10,6 +10,8 @@ const default_Sign_Option: SignOption = {
 export default function signjwtAcsesTocken(payload :JwtPayload,options:SignOption | any = default_Sign_Option) {
   const secretkey :any = process.env.SECRET_KEY
   const tocan = jwt.sign( payload,secretkey!,options)
+  console.log(tocan);
+  
     return tocan
 }
 export function verifyjwt(tocan : string) {
