@@ -9,12 +9,12 @@ export default function Imgenav({ onecrd }) {
     totalimgs: onecrd[0].url.length,
     crunt: 1,
   });
- const [maindata,usemaindata] = useState({id : onecrd[0].id , size : onecrd[0].size , color  : onecrd[0].color})
+  const [maindata,usemaindata] = useState({id : onecrd[0].id , size : onecrd[0].size , color  : onecrd[0].color})
   return  (
     <>
           <div className="flex flex-col sm:flex-row justify-center items-center m-3">
         <div className="w-10/12 sm:w-1/2 h-96 m-2 p-2 flex flex-col justify-center items-center rounded border-2 border-black border-solid bg-slate-200">
-          <div className="flex flex-row justify-center items-center h-5/6 ">
+          <div className="flex flex-col justify-center items-center h-5/6 ">
             {imgs.crunt === 1 ? (
               ""
             ) : (
@@ -62,7 +62,7 @@ export default function Imgenav({ onecrd }) {
                {onecrd[0].size.map((e, i) => {
                 return <div
                 key={i}
-              className={`m-1 p-1 h-2 w-2 rounded border-2 border-black border-solid  ${maindata.size === e ? "bg-black border-white text-white border-4" : "bg-white border-white text-white border-2 " } `}
+              className={`m-1 p-1 h-10 w-10 rounded border-2 border-black border-solid text-center  ${maindata.size === e ? "bg-black border-white text-white border-4" : "bg-white border-black text-black border-2 " } `}
                  onClick={ ()=> {usemaindata({...maindata,size : e})}}
               >
                 {e}
