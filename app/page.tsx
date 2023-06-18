@@ -8,7 +8,7 @@ import Newcrds from "./components/homeCOM/Newcrds";
 import  HowWeArr  from "./components/homeCOM/HowWeArr";
 import  Rewards  from "./components/homeCOM/Rewards";
 import  CustomLogo  from "./components/homeCOM/CustomLogo";
-import getnewst from "../lib/getnewst"
+
 
 
 const vazirmatn = Vazirmatn({
@@ -18,7 +18,15 @@ const vazirmatn = Vazirmatn({
 // 
 
 export default async function Home() {
-  const imgdata = await getnewst()
+   async function getnewst() {
+
+  const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`);
+  const { imgdata } = await data.json();
+  
+  return imgdata
+}
+const imgdata = await getnewst()
+console.log();
 
   return (
     <main dir="rtl" className={`flex-col justify-center`}>

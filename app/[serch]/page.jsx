@@ -1,10 +1,18 @@
 import Card from '../components/homeCOM/component/Card'
 import Filter from '../components/storeCOM/filter'
-import getserch from "../../lib/getserch"
 export default async  function Home({params}) {
   const text = params.serch
+ async function getserch(text) {
+    const data = await fetch(`${process.env.NEXTAUTH_URL}/api/serch`, {
+      method: "POST",
+      body: JSON.stringify({ text: text }),
+    });
+    const { textserch } = await data.json();
+    return textserch;
+}
   const textdata = await getserch(text)
-  console.log(textdata , "textdata");
+
+
   return (
   <>
     <div className='flex flex-col' >

@@ -1,7 +1,5 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { Jwt } from "jsonwebtoken";
-import { Session } from "inspector";
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -16,7 +14,11 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
+        console.log(credentials?.username,credentials?.password,22222);
+        
         // Add logic here to look up the user from the credentials supplied
+        console.log("befor");
+        
         const res = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
           method: "POST",
           headers: { "content-Type": "application/json" },
@@ -25,7 +27,9 @@ const handler = NextAuth({
             password: credentials?.password,
           }),
         });
-        const user = await res.json();
+        const user = await res.json()
+        console.log(user);
+        console.log("after");
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
           return user;

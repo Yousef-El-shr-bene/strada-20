@@ -5,7 +5,7 @@ CREATE TABLE "User" (
     "name" TEXT,
     "password" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
-    "itemsid" INTEGER[],
+    "jsonid" JSONB,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -27,6 +27,7 @@ CREATE TABLE "order" (
     "id" SERIAL NOT NULL,
     "userlocation" TEXT NOT NULL,
     "userid" INTEGER NOT NULL,
+    "jsonorder" JSONB NOT NULL,
 
     CONSTRAINT "order_pkey" PRIMARY KEY ("id")
 );

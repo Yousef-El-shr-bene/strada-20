@@ -27,7 +27,7 @@ model User {
   name      String?
   password  String
   phone     String
-  itemsid   Int[]
+  jsonid    Json?
 }
 model imgdata {
   id        Int      @id @default(autoincrement())
@@ -42,4 +42,5 @@ model order {
   id           Int       @id @default(autoincrement())
   userlocation String
   userid Int
+  jsonorder Json 
 }

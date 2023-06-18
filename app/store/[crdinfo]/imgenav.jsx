@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 import Order from "./order";
 export default function Imgenav({ onecrd }) {
   const [imgs, useimge] = useState({
@@ -13,6 +11,7 @@ export default function Imgenav({ onecrd }) {
     id: onecrd[0].id,
     size: onecrd[0].size[0],
     color: onecrd[0].color[0],
+    qu : 1
   });
   console.log(imgs);
   return (
@@ -98,6 +97,7 @@ export default function Imgenav({ onecrd }) {
                   );
                 })}
               </div>
+              <input type="number" onChange={(e)=>{usemaindata({...maindata,qu : e.target.value})}} />
             </div>
           </>
         </div>

@@ -11,7 +11,6 @@ export default function signjwtAcsesTocken(payload :JwtPayload,options:SignOptio
   const secretkey :any = process.env.SECRET_KEY
   const tocan = jwt.sign( payload,secretkey!,options)
   console.log(tocan);
-  
     return tocan
 }
 export function verifyjwt(tocan : string) {

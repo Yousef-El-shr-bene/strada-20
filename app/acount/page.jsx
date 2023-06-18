@@ -49,7 +49,7 @@ export default function Acount() {
             className=" h-20 w-20 m-4 p-4 bg-black rounded "
             src="/st.png"
             width={100}
-            height={100}
+            height={100} 
             alt="img"
           />
           <div className="sm:w-auto w-full  ">
@@ -77,3 +77,4 @@ export default function Acount() {
     </>
   );
 }
+//     "next": "^13.2.4",
