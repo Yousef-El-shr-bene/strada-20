@@ -68,12 +68,12 @@ export default function Order({ onecrd, maindata, usemaindata }) {
                 setint(1)
               } else if (Number(e.target.value) > 30) {
                 setint(30)
-              } else if (Number(e.target.value) === NaN ) {
+              } else if (Number(e.target.value) === NaN) {
                 setint(int)
               } else {
                 setint(Number(e.target.value))
               }
-              usemaindata({ ...maindata, qu: int }) 
+              usemaindata({ ...maindata, qu: int })
             }} />
           </div>
         </>
