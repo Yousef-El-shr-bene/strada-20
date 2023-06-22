@@ -59,49 +59,8 @@ export default function Imgenav({ onecrd }) {
               </button>
             )}
           </div>
-          <>
-            <div className="flex justify-center items-center flex-col rounded-lg bg-gray-100 sm:border-black border-solid border-2 sm:m-1 sm:p-1 p-0 m-0  w-full sm:w-2/4 ">
-            <h1 className="font-bold">اللون المتاح</h1>
-              <div className="flex justify-center items-center ">
-                {onecrd[0].color.map((e, i) => (
-                  <div
-                    key={i}
-                    className={`rounded ${
-                      maindata.color === e ? "m-4 p-6" : "m-1 p-3"
-                    } `}
-                    style={{ backgroundColor: `#${e}` }}
-                    onClick={() => {
-                      usemaindata({ ...maindata, color: e });
-                    }}
-                  ></div>
-                ))}
-              </div>
-              <h1 className="font-bold">المقاس المتاح</h1>
-              <div className="flex justify-center items-center rounded border-2 border-black border-solid ">
-                {onecrd[0].size.map((e, i) => {
-                  console.log(maindata.size, e, i);
-                  return (
-                    <div
-                      key={i}
-                      className={`m-1 p-1  rounded border-2 border-black border-solid text-center  ${
-                        maindata.size === e
-                          ? "bg-black  text-white"
-                          : "bg-white  text-black  "
-                      } `}
-                      onClick={() => {
-                        usemaindata({ ...maindata, size: e });
-                      }}
-                    >
-                      {e}
-                    </div>
-                  );
-                })}
-              </div>
-              <input type="number" onChange={(e)=>{usemaindata({...maindata,qu : e.target.value})}} />
-            </div>
-          </>
         </div>
-        <Order id={onecrd[0].id} maindata={maindata} />
+        <Order onecrd={onecrd} maindata={maindata} usemaindata={usemaindata} />
       </div>
     </>
   );

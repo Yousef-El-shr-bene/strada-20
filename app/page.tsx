@@ -26,7 +26,7 @@ export default async function Home() {
   return imgdata
 }
 const imgdata = await getnewst()
-console.log();
+
 
   return (
     <main dir="rtl" className={`flex-col justify-center`}>

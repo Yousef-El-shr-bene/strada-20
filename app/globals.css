@@ -30,3 +30,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+.img {
+  background-image: url(../public/bg2.png);
+}
+.img2 {
+  background-image: url(../public/testEad.webp);
+}
+.img3{
+  width: 288px;
+}

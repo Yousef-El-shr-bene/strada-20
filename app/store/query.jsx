@@ -1,50 +1,44 @@
 'use client'
-import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react'
 import Card from '../components/homeCOM/component/Card'
-import Filter from '../components/storeCOM/filter'
-import { User, imgdata } from '@prisma/client';
 export default function Query() {
-    const [imgdata , useimgdata] = useState({in : 0 ,data : [] , status : false})
-    const { data: session, status } = useSession();
-    console.log(imgdata);
-    
-    useEffect(() => {
-      console.log(["useEffect 1"]);
-      if (session && session.user && imgdata.in === 1 ) {
-        console.log(["useEffect if true"]);
-        const gitImgdata = fetch(`/api/getallcrds`,{
-            method : "POST",
-            body : JSON.stringify({token :session?.user.accessTocan , skipandtack : imgdata.in  })
-        })
-        .then(async res => {
-            const jsondata = await res.json();
-            const { imgdataq }   = await jsondata
-            useimgdata({in : imgdata.in + 1, data : imgdataq , status : true})
-        })
-      }
-      console.log(["useEffect after if"]);
-    }, [imgdata,session])
-
-    function gitMorData() {
-      useimgdata({...imgdata , status : false})
-        const gitImgdata = fetch("/api/getallcrds",{
-            method : "POST",
-            body : JSON.stringify({token :session?.user.accessTocan , skipandtack : imgdata.in  })
-        }).then(res => res.json)
-        .then(async res => {
-          const jsondata = await res.json();
-          const { imgdataq }   = await jsondata
-            useimgdata({in : imgdata.in + 1, data : data.puch(imgdataq)  , status : true})
-            console.log(["imgdataq",imgdataq]);
-        })
+  const [imgdata, useimgdata] = useState({ in: 0, data: [], status: false ,past : 0 })
+  console.log(["useEffect 1",imgdata]);
+  function lodingdata() {
+     fetch(`/api/getallcrds`, {
+      method: "POST",
+      body: JSON.stringify({ skipandtack: imgdata.in })
+    })
+      .then(async res => {
+        const jsondata = await res.json();
+        const { imgdataq } = await jsondata
+        useimgdata({ in: imgdata.in + 1, data: [...imgdata.data , ...imgdataq ] , status: true })
+      })
+  }
+  useEffect(() => {
+    if (imgdata.in === 0) {
+      lodingdata()
     }
+  }, [imgdata])
+  function gitMorData() {
+    useimgdata({ ...imgdata, status: false })
+    lodingdata()
+  }
+  function lodeerror() {
+    if (imgdata.status) {
+      return <button className='bg-teal-500 hover:bg-teal-300 w-1/2 h-16 rounded-lg mb-10  text-center' onClick={gitMorData} > تحميل المزيد</button>
+    }else{
+      return <button className='bg-teal-500 hover:bg-teal-300 w-1/2 h-16 rounded-lg mb-10  text-center' ><span className="loading loading-spinner loading-lg"></span></button>
+    }
+  }
   return (
     <div className='flex flex-col' >
-    <div className='flex flex-wrap justify-center items-center' >
-      {imgdata.in !== 1 ? imgdata.data.map((e ,i )=>(<><Card id={e.id} text={e.text} url={e.url}  key={i} /></>)) : ""  }
+      <div className='flex flex-wrap justify-center items-center' >
+        {imgdata.in !== 0 ? imgdata.data.map((e, i) => <><Card id={e.id} text={e.text} url={e.url} key={i} /></>) : ""}
+      </div>
+      <div className='flex justify-center items-center' >
+    {lodeerror()}
     </div>
-    {imgdata.status ? <button className='bg-teal-500 hover:bg-teal-300 w-full' onClick={gitMorData} > تحميل المزيد</button>  : <button className='bg-teal-500 hover:bg-teal-300 w-full' >loding...</button>  }
     </div>
   )
 }
