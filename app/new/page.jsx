@@ -62,40 +62,40 @@ export default function New() {
 
   return (
     <div className="flex justify-center items-center flex-col">
-      <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-20 m-3 ">
+      <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-10 m-3 ">
         <input
           placeholder="username"
           type="text"
-          className="m-3 p-3 rounded bg-teal-50"
+          className="m-3 p-3 rounded bg-teal-50 input"
           ref={username}
         ></input>
         <input
           placeholder="email"
           type="email"
-          className="m-3 p-3 rounded bg-teal-50"
+          className="m-3 p-3 rounded bg-teal-50 input"
           ref={email}
         ></input>
         <input
           placeholder="phone number"
           type="text"
-          className="m-3 p-3 rounded bg-teal-50"
+          className="m-3 p-3 rounded bg-teal-50 input"
           ref={phone}
         ></input>
         <input
           placeholder="password"
           type="password"
-          className="m-3 p-3 rounded bg-teal-50"
+          className="m-3 p-3 rounded bg-teal-50 input"
           ref={password}
         ></input>
         <input
           placeholder="confirm password"
           type="password"
-          className="m-3 p-3 rounded bg-teal-50"
+          className="m-3 p-3 rounded bg-teal-50 input"
           ref={confirmPassword}
         ></input>
         {loding ? (
           <button className="bg-teal-500 hover:bg-teal-400 p-3 m-3 rounded text-white ">
-            loding
+            <span className="loading loading-spinner loading-lg"></span>
           </button>
         ) : (
           <button

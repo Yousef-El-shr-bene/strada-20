@@ -17,7 +17,7 @@ export default function Imgenav({ onecrd }) {
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">
-        <div className="w-10/12 sm:w-5/6 h-fit m-2 p-2 flex flex-col sm:flex-row-reverse justify-center items-center rounded border-2 sm:border-0 border-black border-solid ">
+        <div className="w-5/6 h-fit m-2 p-2 flex flex-col sm:flex-row-reverse justify-center items-center ">
           <div className="flex flex-row justify-center items-center h-auto">
             {imgs.crunt === 1 ? (
               <button
@@ -36,7 +36,7 @@ export default function Imgenav({ onecrd }) {
               </button>
             )}
             <Image
-              className="h-full w-72 sm:w-72 sm:h-96 rounded border-black border-solid border-2"
+              className="h-96 w-72 sm:w-72 sm:h-96 rounded border-black border-solid border-2 "
               src={onecrd[0].url[imgs.crunt - 1]}
               width={1000}
               height={1100}

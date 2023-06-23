@@ -6,13 +6,13 @@ export default function Creatuserpage({ loding, refUsername, refPassword, loging
       <input
         placeholder="email"
         type="text"
-        className="m-3 p-3 rounded bg-teal-50"
+        className="m-3 p-3 rounded bg-teal-50 input"
         ref={refUsername}
       ></input>
       <input
         placeholder="password"
         type="password"
-        className="m-3 p-3 rounded bg-teal-50"
+        className="m-3 p-3 rounded bg-teal-50 input"
         ref={refPassword}
       ></input>
       {loding ? (

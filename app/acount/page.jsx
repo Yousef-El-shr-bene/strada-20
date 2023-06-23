@@ -56,7 +56,7 @@ export default function Acount() {
             <HowWeArr />
           </div>
         </div>
-        <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-10 py-3 m-3 ">
+        <div className=" border-2 border-solid border-teal-500 w-auto h-auto text-black flex flex-col justify-center items-center rounded px-10 py-3 mt-28 ">
           {session && session.user ? (
             <>
               <UserData session={session} />
