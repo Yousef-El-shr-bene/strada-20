@@ -3,11 +3,12 @@ import jwt  from "jsonwebtoken";
 export async function POST(request: Request) {
   const secrit: string | any = process.env.SECRET_KEY;
   const data = await request.json();
-  const id = Number(data.id);
+  const id = Number(data.id); //auth id
   const token: string = data.token;
   const jsonData = data.jsonitmdata;
   jsonData.qu =  Number(jsonData.qu)
-console.log([id,token,jsonData]);
+
+  
   if (token === undefined) {
    return new Response(JSON.stringify({ error: "token = undefined" }));
   }
@@ -15,9 +16,10 @@ console.log([id,token,jsonData]);
 
   const User: any = jwt.verify(token, secrit);
   const theUser: any | null = await prisma.user.findFirst({ where: { id: User.id } });
+  console.log(theUser);
   if (theUser?.jsonid === null || theUser?.jsonid.status ) {
     const user = await prisma.user.update({
-      where: { id: User.id },
+      where: { id: theUser.id },
       data: {
         jsonid : [jsonData]
       },
@@ -35,7 +37,7 @@ console.log([id,token,jsonData]);
     })
     if (chois) {
       let newJsonData  = theUser?.jsonid 
-       newJsonData[0] = jsonData
+       newJsonData[inIndex] = jsonData
           const user = await prisma.user.update({
       where: { id: User.id },
       data: {

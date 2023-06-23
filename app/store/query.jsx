@@ -26,9 +26,9 @@ export default function Query() {
   }
   function lodeerror() {
     if (imgdata.status) {
-      return <button className='bg-teal-500 hover:bg-teal-300 w-1/2 h-16 rounded-lg mb-10  text-center' onClick={gitMorData} > تحميل المزيد</button>
+      return <button className='bg-teal-500 hover:bg-teal-300 w-1/2 h-16 rounded-lg mb-10  text-center text-white font-bold' onClick={gitMorData} > تحميل المزيد</button>
     }else{
-      return <button className='bg-teal-500 hover:bg-teal-300 w-1/2 h-16 rounded-lg mb-10  text-center' ><span className="loading loading-spinner loading-lg"></span></button>
+      return <button className='bg-teal-500 hover:bg-teal-300 w-1/2 h-16 rounded-lg mb-10  text-center text-white font-bold' ><span className="loading loading-spinner loading-lg"></span></button>
     }
   }
   return (

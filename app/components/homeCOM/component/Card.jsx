@@ -11,7 +11,7 @@ export default function Card({ id, text, url }) {
           height={1100}
           alt={text}
         />
-        <div className=" p-1 font-bold text-xs sm:text-base  text-center text-black ">
+        <div className=" p-1 font-bold text-xs sm:text-base text-center text-black ">
           <h1>{text}</h1>
         </div>
       </div>

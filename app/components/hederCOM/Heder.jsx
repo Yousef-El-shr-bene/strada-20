@@ -20,7 +20,6 @@ export default function Heder() {
   }
   return (
     <>
-      {/*  */}
       <div className="navbar bg-base-500 rounded p-3 w-full drop-shadow-2xl sticky top-0 z-10 bg-gray-50 ">
         <div className="flex-1">
           <div className=" flex bg-black w-20 h-20 justify-center items-center rounded mx-5">
