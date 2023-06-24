@@ -1,27 +1,16 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Card from "../components/homeCOM/component/Card";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Datacrd from "./datacrd";
+import { useRouter } from "next/navigation";
 export default function Shoppingbag() {
   const { data: session, status } = useSession();
   const [data, setdata] = useState(false);
   const ref = useRef(null);
-  // const [error, seterror] = useState("");
-  // function ordernaw() {
-  //   seterror("");
-  //   if (ref.current.value === "") {
-  //     seterror("blese enter your address");
-  //   } else {
-  //     const order = fetch("/api/order", {
-  //       method: "POST",
-  //       body: JSON.stringify({
-  //         token: session?.user.accessTocan,
-  //         address: ref.current.value,
-  //       }),
-  //     });
-  //   }
-  // }
+  const [error, seterror] = useState("الدفع عند الاستلام");
+  const [lodingsupmet, setlodingsupmet] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     let isRender = false;
     if (session && session.user && data === false && isRender === false) {
@@ -32,9 +21,7 @@ export default function Shoppingbag() {
         .then((res) => res.json())
         .then((data) => {
           if (!isRender) {
-            console.log(data);
             setdata(data);
-            console.log("useEffect 1", data);
           }
         });
     }
@@ -42,8 +29,25 @@ export default function Shoppingbag() {
       isRender = true;
     };
   }, [data, session]);
+  async function ordernaw() {
+    seterror("");
+    setlodingsupmet(true);
+    if (ref.current.value === "") {
+      seterror("blese enter your address");
+    } else {
+      const order = await fetch("/api/order", {
+        method: "POST",
+        body: JSON.stringify({
+          token: session?.user.accessTocan,
+          address: ref.current.value,
+        }),
+      });
+    }
+    router.push("/");
+    setlodingsupmet(false);
+  }
   function Statusbanal() {
-    if (data.error) {
+    if (data.error || data.imgdata.length === 0) {
       return (
         <>
           <div className="flex justify-center items-center flex-col ">
@@ -92,9 +96,26 @@ export default function Shoppingbag() {
                 {data === false ? (
                   <span className="loading loading-dots loading-lg"></span>
                 ) : (
-                  <button className="bg-teal-500 rounded text-white font-bold hover:bg-teal-300 m-2 p-2 ">
-                    استكمال عملية الشراء
-                  </button>
+                  <div className="flex flex-col justify-center items-center">
+                    <textarea
+                      ref={ref}
+                      className="textarea text-black "
+                      placeholder="العنوان"
+                    ></textarea>
+                    {lodingsupmet ? (
+                      <button className="bg-teal-500 rounded text-white font-bold hover:bg-teal-300 m-1 p-2 ">
+                        <span className="loading loading-dots loading-lg"></span>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={ordernaw}
+                        className="bg-teal-500 rounded text-white font-bold hover:bg-teal-300 m-1 p-2 "
+                      >
+                        استكمال عملية الشراء
+                      </button>
+                    )}
+                    <h1>{error}</h1>
+                  </div>
                 )}
               </div>
             </div>
@@ -102,24 +123,7 @@ export default function Shoppingbag() {
           <div className="flex flex-row justify-center items-center flex-wrap ">
             {data !== false && !data.error ? (
               data.imgdata.map((e, i) => (
-                <div key={i} className="bg-white w-auto h-auto flex flex-col justify-center items-center" >
-                <Card id={e.id} text={e.text} url={e.url} key={i} />
-                <div className="flex justify-center items-center absolute bottom-7" >
-                <div
-                  className={`rounded border-solid border-2 border-black m-1 p-3`}
-                  style={{ backgroundColor: `#${e.color}` }}
-                ></div>
-                <div
-                    className={`text-center btn btn-primary p-2 text-white`}
-                  >
-                    {e.size}
-                  </div>
-                  <div className="m-1 p-1 font-semibold" >
-                   {e.qu} X {e.prise} = {e.qu * e.prise} EGP
-                  </div>
-                </div>
-                </div>
-
+                <Datacrd e={e} i={i} key={i} setdata={setdata} />
               ))
             ) : (
               <></>
@@ -131,7 +135,6 @@ export default function Shoppingbag() {
   }
   return (
     <>
-      {/*  */}
       {data === false ? (
         <div className="flex justify-center items-center flex-col ">
           <div className="stats bg-primary text-primary-content m-5">
@@ -151,8 +154,6 @@ export default function Shoppingbag() {
       ) : (
         Statusbanal()
       )}
-
-      {/*  */}
     </>
   );
 }

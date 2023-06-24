@@ -15,7 +15,7 @@ export default function Heder() {
   const input = useRef(null);
   function onserch() {
     if (input.current.value !== "") {
-      router.push(`/${input.current.value}`);
+      router.push(`/serch/${input.current.value}`);
     }
   }
   return (

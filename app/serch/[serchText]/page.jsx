@@ -1,7 +1,7 @@
-import Card from '../components/homeCOM/component/Card'
-import Filter from '../components/storeCOM/filter'
+import Card from '../../components/homeCOM/component/Card'
 export default async  function Home({params}) {
-  const text = params.serch
+  const text = params.serchText
+  console.log([text,"text"]);
  async function getserch(text) {
     const data = await fetch(`${process.env.NEXTAUTH_URL}/api/serch`, {
       method: "POST",
@@ -11,16 +11,12 @@ export default async  function Home({params}) {
     return textserch;
 }
   const textdata = await getserch(text)
-
-
   return (
   <>
     <div className='flex flex-col' >
-    {/* <Filter/> */}
     <div className='flex flex-wrap justify-center items-center' >
-      {textdata !== [] ? textdata.map((e ,i )=>(<><Card id={e.id} text={e.text} url={e.url}  key={i} /></>)) : "now data found" }
+      {textdata.length !== 0 ? textdata.map((e ,i )=>(<><Card id={e.id} text={e.text} url={e.url}  key={i} /></>)) : <h1 className='text-base font-bold' >no data found for {text}</h1> }
     </div>
     </div>
 </>
-  )
-}
+)}
