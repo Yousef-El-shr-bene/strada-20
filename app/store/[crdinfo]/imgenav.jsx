@@ -59,6 +59,7 @@ export default function Imgenav({ onecrd }) {
               </button>
             )}
           </div>
+
         </div>
         <Order onecrd={onecrd} maindata={maindata} usemaindata={usemaindata} />
       </div>

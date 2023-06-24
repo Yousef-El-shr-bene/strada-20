@@ -7,21 +7,21 @@ export default function Shoppingbag() {
   const { data: session, status } = useSession();
   const [data, setdata] = useState(false);
   const ref = useRef(null);
-  const [error, seterror] = useState("");
-  function ordernaw() {
-    seterror("");
-    if (ref.current.value === "") {
-      seterror("blese enter your address");
-    } else {
-      const order = fetch("/api/order", {
-        method: "POST",
-        body: JSON.stringify({
-          token: session?.user.accessTocan,
-          address: ref.current.value,
-        }),
-      });
-    }
-  }
+  // const [error, seterror] = useState("");
+  // function ordernaw() {
+  //   seterror("");
+  //   if (ref.current.value === "") {
+  //     seterror("blese enter your address");
+  //   } else {
+  //     const order = fetch("/api/order", {
+  //       method: "POST",
+  //       body: JSON.stringify({
+  //         token: session?.user.accessTocan,
+  //         address: ref.current.value,
+  //       }),
+  //     });
+  //   }
+  // }
   useEffect(() => {
     let isRender = false;
     if (session && session.user && data === false && isRender === false) {
@@ -102,7 +102,7 @@ export default function Shoppingbag() {
           <div className="flex flex-row justify-center items-center flex-wrap ">
             {data !== false && !data.error ? (
               data.imgdata.map((e, i) => (
-                <div className="bg-white w-auto h-auto flex flex-col justify-center items-center" >
+                <div key={i} className="bg-white w-auto h-auto flex flex-col justify-center items-center" >
                 <Card id={e.id} text={e.text} url={e.url} key={i} />
                 <div className="flex justify-center items-center absolute bottom-7" >
                 <div
@@ -110,7 +110,7 @@ export default function Shoppingbag() {
                   style={{ backgroundColor: `#${e.color}` }}
                 ></div>
                 <div
-                    className={`text-center btn btn-primary text-white`}
+                    className={`text-center btn btn-primary p-2 text-white`}
                   >
                     {e.size}
                   </div>

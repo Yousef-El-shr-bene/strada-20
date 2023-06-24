@@ -29,19 +29,20 @@ export default function Order({ onecrd, maindata, usemaindata }) {
       return `${int} X ${onecrd[0].prise} =  ${onecrd[0].prise * int} EGP`
     }
   }
-  console.log([int, Number(int), Number.isInteger(Number(int))]);
+  console.log([onecrd, maindata, usemaindata]);
   return (
     <>
       <div className="h-auto flex-grow flex flex-col justify-center items-center sm:w-1/2 w-full text-black ">
         <>
-          <h1 className='text-black mt-5 pt-5 font-black ' >{prise()}</h1>
+        <h1 className='mt-5 pt-5 text-xl font-semibold' >{onecrd[0].text}</h1>
+          <h1 className='text-black  font-black m-1' >{prise()}</h1>
           <div className="flex justify-center items-center flex-col rounded-lg sm:m-1 sm:p-1 p-0 m-0  w-full sm:w-2/4 ">
-            <h1 className="font-bold p-2 m-2 ">اللون المتاح</h1>
+            <h1 className="font-bold p-2 m-1 ">اللون</h1>
             <div className="flex justify-center items-center ">
               {onecrd[0].color.map((e, i) => (
                 <div
                   key={i}
-                  className={`rounded border-solid border-2 border-black ${maindata.color === e ? "m-4 p-6" : "m-1 p-3"
+                  className={`rounded border-solid border-2 border-black m-1 ${maindata.color === e ? " mx-2 p-6" : "p-4"
                     } `}
                   style={{ backgroundColor: `#${e}` }}
                   onClick={() => {
@@ -50,7 +51,7 @@ export default function Order({ onecrd, maindata, usemaindata }) {
                 ></div>
               ))}
             </div>
-            <h1 className="font-bold p-2 m-2">المقاس المتاح</h1>
+            <h1 className="font-bold p-2 m-1">المقاس</h1>
             <div className="flex justify-center items-center  btn-group  btn-group-horizontal">
               {onecrd[0].size.map((e, i) => {
                 return (
@@ -69,10 +70,10 @@ export default function Order({ onecrd, maindata, usemaindata }) {
                 );
               })}
             </div>
-            <h1 className="font-bold p-2 m-2">الكمية</h1>
+            <h1 className="font-bold p-2 m-1">الكمية</h1>
             <div className='flex justify-center items-center '  >
               <button
-                className="m-4 p-4"
+                className="m-1 p-4"
                 onClick={()=>{
                   if (int <= 1) {
                     setint(1)
@@ -95,7 +96,7 @@ export default function Order({ onecrd, maindata, usemaindata }) {
                 }
               }} />
               <button
-                className="m-4 p-4 "
+                className="m-1 p-4 "
                 onClick={()=>{
                   if (int >= 30) {
                     setint(30)
@@ -110,16 +111,16 @@ export default function Order({ onecrd, maindata, usemaindata }) {
           </div>
         </>
         <Link href={`/bag/${maindata.id}+${maindata.size}+${maindata.color}+${maindata.qu}`} >
-          <h1 className="bg-teal-500 hover:bg-teal-400 rounded-full m-2 p-2 font-bold text-xl text-white ">
+          <h1 className="bg-teal-500 hover:bg-teal-400 rounded-full m-1 p-2 font-bold text-xl text-white ">
             طلب الان
           </h1></Link>
         {lodingbtn ? <button
-          className="bg-teal-500 hover:bg-teal-400 rounded-full m-2 p-2 font-bold text-white "
+          className="bg-teal-500 hover:bg-teal-400 rounded-full m-1 p-2 font-bold text-white "
           onClick={add}
         >
           <span className="loading loading-spinner loading-lg"></span>
         </button> : <button
-          className="bg-teal-500 hover:bg-teal-400 rounded-full m-2 p-2 font-bold text-white "
+          className="bg-teal-500 hover:bg-teal-400 rounded-full m-1 p-2 font-bold text-white "
           onClick={add}
         >
           إلي العربة
