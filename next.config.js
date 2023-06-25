@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },images : {
-    domains : ["contents.mediadecathlon.com"]
+    domains : ["m.media-amazon.com"]
   }
 }
 

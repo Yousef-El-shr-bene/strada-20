@@ -83,7 +83,7 @@ export default function Shoppingbag() {
           <div className="stats bg-primary text-primary-content m-5">
             <div className="stat">
               <div className="stat-title text-white"> المبلغ الكلي</div>
-              <div className="stat-value">
+              <div className="stat-value text-lg">
                 {data === false ? (
                   <span className="loading loading-dots loading-lg"></span>
                 ) : (

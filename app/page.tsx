@@ -1,9 +1,6 @@
 import { Vazirmatn } from 'next/font/google'
-//
-import BigAdd from "./components/homeCOM/bigAdd";
 import HomeAdd from './components/homeCOM/upLine'
 import ShopNow from './components/homeCOM/ShopNow'
-// import MostSelles from "./components/homeCOM/MostSelles";
 import Newcrds from "./components/homeCOM/Newcrds";
 import  HowWeArr  from "./components/homeCOM/HowWeArr";
 import  Rewards  from "./components/homeCOM/Rewards";
@@ -32,7 +29,6 @@ const imgdata = await getnewst()
     <main dir="rtl" className={`flex-col justify-center`}>
         <HomeAdd/>
         <ShopNow/>
-        <BigAdd/>
         <Newcrds data={imgdata} />
         <HowWeArr/>
         <Rewards/>

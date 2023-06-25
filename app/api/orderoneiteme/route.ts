@@ -18,7 +18,7 @@ export async function POST(request : Request) {
         }
     })
     const order : order = await prisma.order.create({data : {
-        userlocation : address , userid : userId , jsonorder : {items : {id : userId , qu : qu , size : size , color : color } }
+        userlocation : address , userid : userId , jsonorder : {items : [{id : userId , qu : qu , size : size , color : color }] }
     }})
         return new Response(JSON.stringify({imgdata : {user : "ok"}}))
 }
