@@ -1,4 +1,5 @@
 import React from 'react'
+export const revalidate = 0
 export default async function RewardsProgram() {
 return  (
     <div className='w-full flex justify-center items-center ' >

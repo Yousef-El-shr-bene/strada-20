@@ -8,19 +8,31 @@ export default function Order({ onecrd, maindata, usemaindata }) {
   const [int, setint] = useState(1);
   const rawter = useRouter();
   const { data: session, status } = useSession();
-  const ref = useRef()
-  const [lodingsupmet,setlodingsupmet] = useState(false)
-  const [error,seterror] = useState("الدفع عند الاستلام")
-  console.log({...maindata,qu: int});
+  const ref = useRef();
+  const [lodingsupmet, setlodingsupmet] = useState(false);
+  const [error, seterror] = useState("الدفع عند الاستلام");
+  console.log({ ...maindata, qu: int });
   async function ordernaw() {
-    if (ref.current.value === "") {
-      seterror("يرجا ادخال العنوان")
+    if (session === null) {
+      rawter.push("/acount")
     }else{
-      setlodingsupmet(false)
-      const data = await fetch("/api/orderoneiteme",{method : "POST",body : JSON.stringify({token : session?.user.accessTocan,address: ref.current.value,size:maindata.size,qu:int,color:maindata.color})})
-      setlodingsupmet(true)
+    if (ref.current.value === "") {
+      seterror("يرجا ادخال العنوان");
+    } else {
+      setlodingsupmet(false);
+      const data = await fetch("/api/orderoneiteme", {
+        method: "POST",
+        body: JSON.stringify({
+          token: session?.user.accessTocan,
+          address: ref.current.value,
+          size: maindata.size,
+          qu: int,
+          color: maindata.color,
+        }),
+      });
+      setlodingsupmet(true);
       rawter.push("/");
-    }
+    }}
   }
   async function add() {
     setlodingbtn(true);
@@ -49,7 +61,7 @@ export default function Order({ onecrd, maindata, usemaindata }) {
   console.log([onecrd, maindata, usemaindata]);
   return (
     <>
-      <div className="h-auto flex-grow flex flex-col justify-center items-center sm:w-1/2 w-full text-black ">
+      <div className="h-auto flex-grow flex flex-col justify-center items-center sm:w-1/2 w-full text-black">
         <>
           <h1 className="mt-5 pt-5 text-xl font-semibold">{onecrd[0].text}</h1>
           <h1 className="text-black  font-black m-1">{prise()}</h1>
@@ -154,7 +166,6 @@ export default function Order({ onecrd, maindata, usemaindata }) {
               طلب الان
             </summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 relative ">
-              
               <div className="flex flex-col justify-center items-center">
                 <textarea
                   ref={ref}
@@ -175,7 +186,6 @@ export default function Order({ onecrd, maindata, usemaindata }) {
                 )}
                 <h1>{error}</h1>
               </div>
-            
             </ul>
           </details>
         </>

@@ -3,7 +3,7 @@ import Imgenav from "./imgenav";
 interface params {
   crdinfo: string;
 }
-
+export const revalidate = 0
 export default async function CrdInfo({ params }: { params: params }) {
   async function getnewst() {
     const data = await fetch(`${process.env.NEXTAUTH_URL}/api/newst`);

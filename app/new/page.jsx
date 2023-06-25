@@ -4,6 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+export const revalidate = 0
 export default function New() {
   const [eror, setEror] = useState("");
   const [loding, setLoding] = useState(false);

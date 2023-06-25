@@ -1,4 +1,5 @@
 import Card from '../../components/homeCOM/component/Card'
+export const revalidate = 0
 export default async  function Home({params}) {
   const text = params.serchText
   console.log([text,"text"]);

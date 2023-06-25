@@ -16,7 +16,7 @@ const vazirmatn = Vazirmatn({
 })
 
 // 
-
+export const revalidate = 0
 export default async function Home() {
    async function getnewst() {
 

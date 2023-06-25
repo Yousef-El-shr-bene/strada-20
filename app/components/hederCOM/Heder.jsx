@@ -20,33 +20,52 @@ export default function Heder() {
   }
   return (
     <>
-      <div className="navbar bg-base-500 rounded p-3 w-full drop-shadow-2xl sticky top-0 z-10 bg-gray-50 ">
+      <div className="navbar bg-base-500 rounded-b p-3 w-full drop-shadow-2xl sticky top-0 z-10 bg-gray-50 ">
         <div className="flex-1">
-          <div className=" flex bg-black w-20 h-20 justify-center items-center rounded mx-5">
+          <div className="flex bg-black w-14 h-14 justify-center items-center rounded hover:rounded-lg mx-5 transition-all ease-in-out delay-75 ">
+            <Link href={'/'} >
             <Image
-              className=" h-20 w-20 p-4"
+              className=" h-12 w-12 p-2"
               src="/st.png"
               width={100}
               height={100}
               alt="img"
             />
+            </Link>
           </div>
           <div className="flex">
             <Link
               href="/bag"
-              className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3"
+              className="bg-black p-2 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-2"
             >
               <AiOutlineShopping className="w-5 h-5 text-white hover:text-teal-500" />
             </Link>
             <Link
               href="/acount"
-              className="bg-black p-4 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-3"
+              className="bg-black p-2 transition-all ease-in-out delay-75 rounded  hover:rounded-lg m-2"
             >
               <VscAccount className="w-5 h-5 text-white hover:text-teal-500" />
             </Link>
           </div>
         </div>
-        <div className="dropdown dropdown-bottom dropdown-end mx-3 px-3 ">
+        <div className="join drop-shadow-2xl hidden sm:flex ">
+                <div>
+                    <input
+                      className="input input-bordered join-item"
+                      placeholder="Search..."
+                      ref={input}
+                    />
+                </div>
+                <div className="indicator">
+                  <button
+                    className="btn join-item bg-teal-500 p-3.5 text-center hover:bg-teal-400 text-white "
+                    onClick={onserch}
+                  >
+                    <AiOutlineSearch />
+                  </button>
+                </div>
+              </div>
+        <div className="dropdown dropdown-bottom dropdown-end mx-1 px-1">
           <label tabIndex={0} className="btn m-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,15 +121,13 @@ export default function Heder() {
               </Link>
             </li>
             <li>
-              <div className="join drop-shadow-2xl ">
+              <div className="join drop-shadow-2xl flex sm:hidden ">
                 <div>
-                  <div>
                     <input
                       className="input input-bordered join-item"
                       placeholder="Search..."
                       ref={input}
                     />
-                  </div>
                 </div>
                 <div className="indicator">
                   <button
@@ -124,6 +141,7 @@ export default function Heder() {
             </li>
           </ul>
         </div>
+
       </div>
     </>
   );

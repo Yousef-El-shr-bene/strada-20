@@ -6,6 +6,7 @@ import React, { useRef, useState } from "react";
 import Creatuserpage from "../components/acountCOM/Creatuserpage";
 import { useSession } from "next-auth/react";
 import UserData from "../components/acountCOM/UserData";
+export const revalidate = 0
 export default function Acount() {
   const { data: session, status } = useSession();
   const refUsername = useRef(); 

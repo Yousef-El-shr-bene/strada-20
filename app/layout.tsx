@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`h-full w-full ${vazirmatn.className} `} >
+      <body className={`h-full w-full ${vazirmatn.className} transition-all ease-in-out delay-75`} >
         <Providers>
         <Heder/>
         {children}
