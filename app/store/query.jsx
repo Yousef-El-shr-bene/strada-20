@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Card from '../components/homeCOM/component/Card'
 export default function Query() {
   const [imgdata, useimgdata] = useState({ in: 0, data: [], status: false ,past : 0 })
-  console.log(["useEffect 1",imgdata]);
   function lodingdata() {
      fetch(`/api/getallcrds`, {
       method: "POST",

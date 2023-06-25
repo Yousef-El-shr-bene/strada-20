@@ -8,7 +8,6 @@ export async function POST(request) {
     function signjwtAcsesTocken(payload ,options) {
         const secretkey  = process.env.SECRET_KEY
         const tocan = jwt.sign( payload,secretkey,options)
-        console.log(tocan);
           return tocan
       }
     //
@@ -18,7 +17,6 @@ export async function POST(request) {
             email: body.username
         }
     })
-    console.log("login",[user]);
     if (user && (await bcrypt.compare(body.password, user.password))) {
         const { password, ...userWithawitpassword } = user
         const accessTocan = signjwtAcsesTocken(userWithawitpassword)
@@ -26,7 +24,6 @@ export async function POST(request) {
             ...userWithawitpassword,
             accessTocan,
         }
-        console.log(result);
         return new Response(JSON.stringify(result))
     } else if (user === null) {
         return new Response(JSON.stringify(null))

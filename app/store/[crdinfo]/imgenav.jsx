@@ -13,7 +13,6 @@ export default function Imgenav({ onecrd }) {
     color: onecrd[0].color[0],
     qu : 1
   });
-  console.log(imgs);
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-center items-center m-3">

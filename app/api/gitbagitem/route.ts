@@ -9,7 +9,6 @@ export async function POST(request: Request) {
   const realUser : User | any = await prisma.user.findUnique({
     where: { id: user.id },
   });
-  console.log(realUser , "tesssssst")
   if(realUser.jsonid === null){
     return new Response(
         JSON.stringify({ error : "no data" })
@@ -27,8 +26,6 @@ export async function POST(request: Request) {
     return aray;
   }
   const { jsonid, ...therest } = realUser;
-  console.log(token, realUser, "سرفر");
-  console.log(realUser.jsonid.length,"test")
   return new Response(
     JSON.stringify({ imgdata: await gitBagData(), jsondata: jsonid })
   );

@@ -6,7 +6,6 @@ export async function POST(request: Request) {
   const token: string = data.token;
   const crdid : any = Number(data.crdid)
 
-  console.log(crdid);
   
   if (token === undefined) {
    return new Response(JSON.stringify({ error: "token = undefined" }));
@@ -28,9 +27,7 @@ export async function POST(request: Request) {
     })
     if (chois) {
       let newJsonData  = theUser?.jsonid 
-      console.log(newJsonData);
       newJsonData.splice(inIndex, 1)
-      console.log(newJsonData);
           const user = await prisma.user.update({
       where: { id: User.id },
       data: {

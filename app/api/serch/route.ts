@@ -10,6 +10,5 @@ export async function POST(request: Request) {
     },
     take : 10,
   });
-  console.log("api", textserch);
   return new Response(JSON.stringify({ textserch: textserch }));
 }

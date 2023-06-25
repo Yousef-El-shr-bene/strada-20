@@ -2,7 +2,6 @@ import Card from '../../components/homeCOM/component/Card'
 export const revalidate = 0
 export default async  function Home({params}) {
   const text = params.serchText
-  console.log([text,"text"]);
  async function getserch(text) {
     const data = await fetch(`${process.env.NEXTAUTH_URL}/api/serch`, {
       method: "POST",

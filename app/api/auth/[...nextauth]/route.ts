@@ -13,11 +13,8 @@ const handler = NextAuth({
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
-        console.log(credentials?.username,credentials?.password,22222);
-        
+      async authorize(credentials, req) {        
         // Add logic here to look up the user from the credentials supplied
-        console.log("befor");
         
         const res = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
           method: "POST",
@@ -28,8 +25,6 @@ const handler = NextAuth({
           }),
         });
         const user = await res.json()
-        console.log(user);
-        console.log("after");
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
           return user;

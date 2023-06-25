@@ -11,7 +11,6 @@ export default function Order({ onecrd, maindata, usemaindata }) {
   const ref = useRef();
   const [lodingsupmet, setlodingsupmet] = useState(false);
   const [error, seterror] = useState("الدفع عند الاستلام");
-  console.log({ ...maindata, qu: int });
   async function ordernaw() {
     if (session === null) {
       rawter.push("/acount")
@@ -58,7 +57,6 @@ export default function Order({ onecrd, maindata, usemaindata }) {
       return `${int} X ${onecrd[0].prise} =  ${onecrd[0].prise * int} EGP`;
     }
   }
-  console.log([onecrd, maindata, usemaindata]);
   return (
     <>
       <div className="h-auto flex-grow flex flex-col justify-center items-center sm:w-1/2 w-full text-black">

@@ -15,7 +15,6 @@ export async function POST(request: Request) {
 
   const User: any = jwt.verify(token, secrit);
   const theUser: any | null = await prisma.user.findFirst({ where: { id: User.id } });
-  console.log(theUser);
   if (theUser?.jsonid === null || theUser?.jsonid.status ) {
     const user = await prisma.user.update({
       where: { id: theUser.id },
