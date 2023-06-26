@@ -42,8 +42,8 @@ export default function Shoppingbag() {
           address: ref.current.value,
         }),
       });
-    }
     router.push("/");
+    }
     setlodingsupmet(false);
   }
   function Statusbanal() {
